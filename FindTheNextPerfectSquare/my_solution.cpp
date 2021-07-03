@@ -1,6 +1,6 @@
 #include <cmath>    // for std::sqrt and std::pow
 
-int get_next_perfect_square(int square_number)
+int get_next_perfect_square(const int square_number)
 {
     // A perfect square is an integer that is the square of an integer.
     // So now we know we're dealing with just integers.
