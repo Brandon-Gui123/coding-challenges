@@ -1,9 +1,9 @@
+// for the solution I wrote
+#include "my_solution.h"
+
 #include <cassert>      // for assert()
 #include <iostream>     // for console
 #include <string>       // for std::string
-
-// for the solution I wrote
-#include "my_solution.h"
 
 int main()
 {
