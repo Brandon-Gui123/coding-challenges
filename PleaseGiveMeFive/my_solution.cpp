@@ -26,11 +26,9 @@ bool contains5_alternative(int number_to_check)
     // 4. If not, divide arg by 10 to remove the first digit
     // 5. Repeat until arg is 0.
 
-    int number_to_check_copy{ number_to_check };
-
-    while (number_to_check_copy > 0)
+    while (number_to_check > 0)
     {
-        int rightmost{ number_to_check_copy % 10 };
+        int rightmost{ number_to_check % 10 };
 
         if (rightmost == 5)
         {
@@ -38,7 +36,7 @@ bool contains5_alternative(int number_to_check)
         }
         else
         {
-            number_to_check_copy /= 10;
+            number_to_check /= 10;
         }
     }
 
