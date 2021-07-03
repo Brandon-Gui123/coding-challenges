@@ -10,5 +10,9 @@ int main()
     assert(contains5(200) == false);
     assert(contains5(555) == true);
     
+    assert(contains5_alternative(51) == true);
+    assert(contains5_alternative(200) == false);
+    assert(contains5_alternative(555) == true);
+
     return 0;
 }
