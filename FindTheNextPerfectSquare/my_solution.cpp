@@ -19,8 +19,8 @@ int get_next_perfect_square(int square_number)
     // add 1 to the result
     // then square and return the result
 
-    double num{ std::sqrt(square_number) };
-    double rounded{ std::ceil(num) };
+    const double num{ std::sqrt(square_number) };
+    const double rounded{ std::ceil(num) };
 
     if (rounded > num)
     {
@@ -30,8 +30,8 @@ int get_next_perfect_square(int square_number)
     else
     {
         // get the next square number
-        int nextNum{ static_cast<int>(num) + 1 };
-        int result{ static_cast<int>(std::pow(nextNum, 2)) };
+        const int nextNum{ static_cast<int>(num) + 1 };
+        const int result{ static_cast<int>(std::pow(nextNum, 2)) };
         return result;
     }
 
