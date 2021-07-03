@@ -28,7 +28,7 @@ bool contains5_alternative(int number_to_check)
 
     while (number_to_check > 0)
     {
-        int rightmost{ number_to_check % 10 };
+        const int rightmost{ number_to_check % 10 };
 
         if (rightmost == 5)
         {
