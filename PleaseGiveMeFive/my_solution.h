@@ -3,4 +3,6 @@
 
 bool contains5(int number_to_check);
 
+bool contains5_alternative(int number_to_check);
+
 #endif  // !MY_SOLUTION_H
