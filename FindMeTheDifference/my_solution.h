@@ -9,6 +9,11 @@
 int getDifferenceBetweenLongestAndShortest(const std::vector<std::string>& strings);
 
 template <std::size_t size>
-int getDifferenceBetweenLongestAndShortest(const std::array<std::string, size>& strings);
+int getDifferenceBetweenLongestAndShortest_Array(const std::array<std::string, size>& strings)
+{
+    // Solution when dealing with an std::array.
+    // Same as when dealing with a vector.
+    throw "Not implemented!";
+}
 
 #endif  // !MY_SOLUTION_H
