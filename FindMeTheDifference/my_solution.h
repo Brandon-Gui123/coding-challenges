@@ -13,7 +13,24 @@ int getDifferenceBetweenLongestAndShortest_Array(const std::array<std::string, s
 {
     // Solution when dealing with an std::array.
     // Same as when dealing with a vector.
-    throw "Not implemented!";
+
+    size_t shortestLength{ strings[0].length() };
+    size_t longestLength{ strings[0].length() };
+
+    for (const std::string& str : strings)
+    {
+        if (str.length() < shortestLength)
+        {
+            shortestLength = str.length();
+        }
+
+        if (str.length() > longestLength)
+        {
+            longestLength = str.length();
+        }
+    }
+
+    return longestLength - shortestLength;
 }
 
 #endif  // !MY_SOLUTION_H
