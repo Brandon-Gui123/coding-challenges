@@ -1,4 +1,3 @@
-
 #include <string>   // for std::string
 #include <vector>   // for std::vector
 
@@ -38,4 +37,9 @@ int getDifferenceBetweenLongestAndShortest(const std::vector<std::string>& strin
     }
 
     return longestLength - shortestLength;
+}
+
+int getDifferenceBetweenLongestAndShortest_CharPointer(const char** begin, const char** end)
+{
+    throw "Function not implemented!";
 }
