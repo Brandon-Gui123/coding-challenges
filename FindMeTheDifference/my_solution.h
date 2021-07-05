@@ -33,4 +33,12 @@ int getDifferenceBetweenLongestAndShortest_Array(const std::array<std::string, s
     return longestLength - shortestLength;
 }
 
+// Pointer to a pointer of a constant char.
+// A string is an array of constant characters (remember that strings by right are immutable).
+// An array of strings is an array of an array of constant characters.
+// In this function, we want a pointer to the first element in the array of strings.
+// The first element is of type const char*, using the address-of operator here will yield
+// a type of const char** (a pointer to a pointer to a const character).
+int getDifferenceBetweenLongestAndShortest_CharPointer(const char** begin, const char** end);
+
 #endif  // !MY_SOLUTION_H
