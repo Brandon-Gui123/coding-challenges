@@ -30,5 +30,18 @@ int getNumberOfOnesInBinary(int number)
 
 int getNumberOfOnesInBinary_Bitwise(int number)
 {
-    throw "Function not implemented";
+    unsigned int unsignedNumber{ static_cast<unsigned int>(number) };
+
+    int numOnes{ 0 };
+    while (unsignedNumber != 0)
+    {
+        if (unsignedNumber & 1)
+        {
+            ++numOnes;
+        }
+
+        unsignedNumber = unsignedNumber >> 1;
+    }
+
+    return numOnes;
 }
