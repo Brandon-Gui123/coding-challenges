@@ -27,3 +27,8 @@ int getNumberOfOnesInBinary(int number)
 
     return numOnes;
 }
+
+int getNumberOfOnesInBinary_Bitwise(int number)
+{
+    throw "Function not implemented";
+}
