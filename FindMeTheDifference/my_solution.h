@@ -33,6 +33,8 @@ int getDifferenceBetweenLongestAndShortest_Array(const std::array<std::string, s
     return longestLength - shortestLength;
 }
 
+int getStringLength(const char* charPointer);
+
 // Pointer to a pointer of a constant char.
 // A string is an array of constant characters (remember that strings by right are immutable).
 // An array of strings is an array of an array of constant characters.
