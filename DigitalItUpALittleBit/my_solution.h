@@ -3,4 +3,6 @@
 
 int getNumberOfOnesInBinary(int number);
 
+int getNumberOfOnesInBinary_Bitwise(int number);
+
 #endif  // !MY_SOLUTION_H
