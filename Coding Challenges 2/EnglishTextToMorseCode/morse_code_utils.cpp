@@ -1,8 +1,11 @@
 
+#include "morse_code_constants.h"   // for dot and dash compile-time constants
 #include "morse_code_letter.h"      // for MorseCodeLetter struct
 #include "morse_code_tables.h"      // for array of morse codes
 
+#include <algorithm>                // for std::replace_if
 #include <cctype>                   // for std::toupper
+#include <string>                   // for std::string
 
 const MorseCodeLetter* findMorseCodeLetterWithCharacter(char ch)
 {
@@ -32,10 +35,15 @@ const MorseCodeLetter* findMorseCodeLetterWithCode(const std::string& code)
     return nullptr;
 }
 
-std::string charToMorseCode(char ch)
+std::string charToMorseCode(char ch, char dotCh = MorseCodeConstants::dot, char dashCh = MorseCodeConstants::dash)
 {
     const MorseCodeLetter* morseCodeLetter{ findMorseCodeLetterWithCharacter(ch) };
-    return morseCodeLetter->morseCode;
+    std::string morseCode{ morseCodeLetter->morseCode };
+
+    std::replace(morseCode.begin(), morseCode.end(), '0', dotCh);
+    std::replace(morseCode.begin(), morseCode.end(), '1', dashCh);
+
+    return morseCode;
 }
 
 char morseCodeToChar(const std::string& morseCode)

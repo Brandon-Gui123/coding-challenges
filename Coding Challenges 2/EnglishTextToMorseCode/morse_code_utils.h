@@ -9,7 +9,7 @@
 const MorseCodeLetter* findMorseCodeLetterWithCharacter(char ch);
 const MorseCodeLetter* findMorseCodeLetterWithCode(const std::string& code);
 
-std::string charToMorseCode(char ch);
+std::string charToMorseCode(char ch, char dotCh, char dashCh);
 char morseCodeToChar(const std::string& morseCode);
 
 std::string stringToMorseCode(const std::string& str);
