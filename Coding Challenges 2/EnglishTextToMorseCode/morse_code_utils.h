@@ -1,0 +1,4 @@
+#ifndef MORSE_CODE_UTILS_H
+#define MORSE_CODE_UTILS_H
+
+#endif  // !MORSE_CODE_UTILS_H

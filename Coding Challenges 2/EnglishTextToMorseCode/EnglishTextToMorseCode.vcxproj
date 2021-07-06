@@ -160,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="morse_code_letter.h" />
+    <ClInclude Include="morse_code_utils.h" />
     <ClInclude Include="my_solution.h" />
     <ClInclude Include="morse_code_tables.h" />
   </ItemGroup>

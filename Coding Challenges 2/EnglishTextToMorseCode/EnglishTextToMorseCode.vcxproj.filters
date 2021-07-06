@@ -32,6 +32,9 @@
     <ClInclude Include="morse_code_letter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="morse_code_utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="my_solution.h">
