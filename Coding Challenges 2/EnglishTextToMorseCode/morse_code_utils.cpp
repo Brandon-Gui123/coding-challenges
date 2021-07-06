@@ -68,3 +68,43 @@ std::string stringToMorseCode(const std::string& str)
 
     return morseCode;
 }
+
+std::string morseCodeToString(const std::string& morseCode)
+{
+    std::string str{ "" };
+    int whitespacesEncounteredInARow{ 0 };
+    std::string morseCodeSet{ "" };
+
+    for (auto chPtr{ morseCode.begin() }; chPtr != morseCode.end(); ++chPtr)
+    {
+        if (*chPtr == ' ')
+        {
+            if (morseCodeSet != "")
+            {
+                str += morseCodeToChar(morseCodeSet);
+                morseCodeSet = "";
+            }
+
+            ++whitespacesEncounteredInARow;
+        }
+        else if (chPtr == morseCode.end() - 1)  // last element
+        {
+            morseCodeSet += *chPtr;
+            str += morseCodeToChar(morseCodeSet);
+        }
+        else
+        {
+            whitespacesEncounteredInARow = 0;
+            morseCodeSet += *chPtr;
+        }
+
+        if (whitespacesEncounteredInARow >= 3)
+        {
+            // this is a space
+            whitespacesEncounteredInARow = 0;
+            str += ' ';
+        }
+    }
+
+    return str;
+}
