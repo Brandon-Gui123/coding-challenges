@@ -2,11 +2,15 @@
 #include "morse_code_letter.h"      // for MorseCodeLetter struct
 #include "morse_code_tables.h"      // for array of morse codes
 
+#include <cctype>                   // for std::toupper
+
 const MorseCodeLetter* findMorseCodeLetterWithCharacter(char ch)
 {
     for (const auto& morseCodeLetter : International::morseCodesLetters)
     {
-        if (morseCodeLetter.letter == ch)
+        // need to convert to uppercase since that is the characters
+        // we use in the array
+        if (morseCodeLetter.letter == std::toupper(ch))
         {
             return &morseCodeLetter;
         }
