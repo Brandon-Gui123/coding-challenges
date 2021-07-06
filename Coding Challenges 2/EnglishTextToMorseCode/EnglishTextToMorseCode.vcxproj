@@ -157,12 +157,10 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="morse_code_utils.cpp" />
-    <ClCompile Include="my_solution.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="morse_code_letter.h" />
     <ClInclude Include="morse_code_utils.h" />
-    <ClInclude Include="my_solution.h" />
     <ClInclude Include="morse_code_tables.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
