@@ -6,7 +6,7 @@
 
 namespace International
 {
-    const std::unordered_map<const char, const std::string> morseCodesForLetter
+    const std::unordered_map<char, std::string> morseCodesForLetter
     {
         { 'a', "01"   },
         { 'b', "1000" },
@@ -36,7 +36,7 @@ namespace International
         { 'z', "1100" }
     };
 
-    const std::unordered_map<const std::string, const char> lettersForMorseCode
+    const std::unordered_map<std::string, char> lettersForMorseCode
     {
         { "01"  , 'a' },
         { "1000", 'b' },
