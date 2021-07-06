@@ -1,4 +1,9 @@
 #ifndef MORSE_CODE_UTILS_H
 #define MORSE_CODE_UTILS_H
 
+#include "morse_code_tables.h"  // for the array of morse codes
+#include "morse_code_letter.h"  // for MorseCodeLetter struct
+
+const MorseCodeLetter* findMorseCodeLetterWithCharacter(char ch);
+
 #endif  // !MORSE_CODE_UTILS_H
