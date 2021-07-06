@@ -43,3 +43,28 @@ char morseCodeToChar(const std::string& morseCode)
     const MorseCodeLetter* morseCodeLetter{ findMorseCodeLetterWithCode(morseCode) };
     return morseCodeLetter->letter;
 }
+
+std::string stringToMorseCode(const std::string& str)
+{
+    std::string morseCode{ "" };
+
+    for (auto chPtr{ str.begin() }; chPtr != str.end(); ++chPtr)
+    {
+        if (*chPtr == ' ')
+        {
+            morseCode += ' ';
+        }
+        else
+        {
+            morseCode += charToMorseCode(*chPtr);
+        }
+
+        // not the last element?
+        if (chPtr != str.end() - 1)
+        {
+            morseCode += ' ';
+        }
+    }
+
+    return morseCode;
+}
