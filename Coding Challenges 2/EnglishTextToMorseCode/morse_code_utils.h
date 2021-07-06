@@ -13,5 +13,6 @@ std::string charToMorseCode(char ch);
 char morseCodeToChar(const std::string& morseCode);
 
 std::string stringToMorseCode(const std::string& str);
+std::string morseCodeToString(const std::string& morseCode);
 
 #endif  // !MORSE_CODE_UTILS_H
