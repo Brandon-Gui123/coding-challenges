@@ -14,3 +14,16 @@ const MorseCodeLetter* findMorseCodeLetterWithCharacter(char ch)
 
     return nullptr;
 }
+
+const MorseCodeLetter* findMorseCodeLetterWithCode(const std::string& code)
+{
+    for (const auto& morseCodeLetter : International::morseCodesLetters)
+    {
+        if (morseCodeLetter.morseCode == code)
+        {
+            return &morseCodeLetter;
+        }
+    }
+
+    return nullptr;
+}
