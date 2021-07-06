@@ -4,6 +4,9 @@
 #include "morse_code_tables.h"  // for the array of morse codes
 #include "morse_code_letter.h"  // for MorseCodeLetter struct
 
+#include <string>               // for std::string
+
 const MorseCodeLetter* findMorseCodeLetterWithCharacter(char ch);
+const MorseCodeLetter* findMorseCodeLetterWithCode(const std::string& code);
 
 #endif  // !MORSE_CODE_UTILS_H
