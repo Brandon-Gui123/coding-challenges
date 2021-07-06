@@ -31,3 +31,9 @@ const MorseCodeLetter* findMorseCodeLetterWithCode(const std::string& code)
 
     return nullptr;
 }
+
+std::string charToMorseCode(char ch)
+{
+    const MorseCodeLetter* morseCodeLetter{ findMorseCodeLetterWithCharacter(ch) };
+    return morseCodeLetter->morseCode;
+}
