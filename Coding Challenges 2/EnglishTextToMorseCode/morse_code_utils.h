@@ -9,4 +9,6 @@
 const MorseCodeLetter* findMorseCodeLetterWithCharacter(char ch);
 const MorseCodeLetter* findMorseCodeLetterWithCode(const std::string& code);
 
+std::string charToMorseCode(char ch);
+
 #endif  // !MORSE_CODE_UTILS_H
