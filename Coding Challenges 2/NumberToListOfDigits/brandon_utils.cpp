@@ -1,18 +1,21 @@
 #include <vector>           // for std::vector
 
-std::vector<int> to_vector_of_digits(int number)
+namespace brandon_utils
 {
-    std::vector<int> digits{};
-
-    do
+    std::vector<int> to_vector_of_digits(int number)
     {
-        const int last_digit{ number % 10 };
-        digits.insert(digits.begin(), last_digit);
+        std::vector<int> digits{};
 
-        // remove last digit from the number
-        number /= 10;
+        do
+        {
+            const int last_digit{ number % 10 };
+            digits.insert(digits.begin(), last_digit);
+
+            // remove last digit from the number
+            number /= 10;
+        }
+        while (number != 0);
+
+        return digits;
     }
-    while (number != 0);
-
-    return digits;
 }

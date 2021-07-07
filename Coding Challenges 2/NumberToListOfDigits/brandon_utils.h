@@ -3,6 +3,9 @@
 
 #include <vector>           // for std::vector
 
-std::vector<int> to_vector_of_digits(int number);
+namespace brandon_utils
+{
+    std::vector<int> to_vector_of_digits(int number);
+}
 
 #endif // !BRANDON_UTILS_H
