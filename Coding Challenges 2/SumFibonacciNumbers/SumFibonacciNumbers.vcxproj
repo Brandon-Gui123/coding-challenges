@@ -157,9 +157,11 @@
   <ItemGroup>
     <ClCompile Include="fibonacci_utils.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="string_number.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fibonacci_utils.h" />
+    <ClInclude Include="string_number.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

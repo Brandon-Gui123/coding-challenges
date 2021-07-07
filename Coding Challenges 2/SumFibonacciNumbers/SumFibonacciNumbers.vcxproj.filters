@@ -21,9 +21,15 @@
     <ClCompile Include="fibonacci_utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="string_number.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fibonacci_utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="string_number.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
