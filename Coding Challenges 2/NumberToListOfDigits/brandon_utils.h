@@ -1,0 +1,4 @@
+#ifndef BRANDON_UTILS_H
+#define BRANDON_UTILS_H
+
+#endif // !BRANDON_UTILS_H
