@@ -5,7 +5,7 @@
 
 namespace fibonacci
 {
-    std::vector<int> generate(int count);
+    std::vector<long double> generate(int count);
 }
 
 #endif  // !FIBONACCI_UTILS_H
