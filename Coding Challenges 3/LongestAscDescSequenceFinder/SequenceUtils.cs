@@ -73,5 +73,22 @@
 
             return numberDigits;
         }
+
+        public static Sequence GetLongestAscendingSequenceFromNumber(int number)
+        {
+            List<Sequence> ascendingSequences = GetAscendingSequencesFromNumber(number);
+
+            int indexOfLongest = 0;
+
+            for (int i = 0; i < ascendingSequences.Count; i++)
+            {
+                if (ascendingSequences[i].digits.Count > ascendingSequences[indexOfLongest].digits.Count)
+                {
+                    indexOfLongest = i;
+                }
+            }
+
+            return ascendingSequences[indexOfLongest];
+        }
     }
 }
