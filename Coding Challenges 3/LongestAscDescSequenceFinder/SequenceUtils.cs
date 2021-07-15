@@ -129,6 +129,23 @@
             return numberDigits;
         }
 
+        public static Sequence GetLongestSequenceFromNumber(int number, SequencePredicate sequencePredicate)
+        {
+            List<Sequence> sequences = GetSequencesFromNumber(number, sequencePredicate);
+
+            int indexOfLongest = 0;
+
+            for (int i = 0; i < sequences.Count; i++)
+            {
+                if (sequences[i].digits.Count > sequences[indexOfLongest].digits.Count)
+                {
+                    indexOfLongest = i;
+                }
+            }
+
+            return sequences[indexOfLongest];
+        }
+
         public static Sequence GetLongestAscendingSequenceFromNumber(int number)
         {
             List<Sequence> ascendingSequences = GetAscendingSequencesFromNumber(number);
