@@ -4,6 +4,8 @@
 
     public class SequenceUtils
     {
+        public delegate bool SequencePredicate(int current, int previous);
+
         public static List<Sequence> GetAscendingSequencesFromNumber(int number)
         {
             // For ascending:
