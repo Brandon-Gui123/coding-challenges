@@ -6,6 +6,49 @@
     {
         public delegate bool SequencePredicate(int current, int previous);
 
+        public static List<Sequence> GetSequencesFromNumber(int number, SequencePredicate predicate)
+        {
+            // break our number down into an array of digits
+            List<int> numberDigits = DeconstructToDigits(number);
+
+            // to hold our sequences
+            List<Sequence> sequences = new();
+
+            Sequence currentSequence = new();                   // to hold the current sequence
+            currentSequence.digits.Add(numberDigits[0]);  // store first digit for comparison with others
+
+            // iterate through the array to find sequences that match our predicate
+            for (int i = 1; i < numberDigits.Count; i++)
+            {
+                // is our predicate fulfilled?
+                // by doing ^1, we are able to obtain the last element in the List
+                // via a concise syntax
+                if (predicate(numberDigits[i], currentSequence.digits[^1]))
+                {
+                    // store the digit in the sequence
+                    currentSequence.digits.Add(numberDigits[i]);
+                }
+                else
+                {
+                    // this is where the sequence ends
+                    // add the sequence to the List of sequences
+                    sequences.Add(currentSequence);
+
+                    // we start a new sequence for the number we're at right now
+                    currentSequence = new();
+                    currentSequence.digits.Add(numberDigits[i]);
+                }
+            }
+
+            // add sequence to the list, if there are digits inside
+            if (currentSequence.digits.Count > 0)
+            {
+                sequences.Add(currentSequence);
+            }
+
+            return sequences;
+        }
+
         public static List<Sequence> GetAscendingSequencesFromNumber(int number)
         {
             // For ascending:
