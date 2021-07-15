@@ -4,6 +4,16 @@
 
     public class SequenceUtils
     {
+        /// <summary>
+        /// Determines if <paramref name="current"/>, when compared to <paramref name="previous"/>,
+        /// should be part of an ongoing sequence, or be the first element in a new sequence.
+        /// </summary>
+        /// <param name="current">The current element that we're interested in.</param>
+        /// <param name="previous">The element before the current.</param>
+        /// <returns>
+        ///     <see langword="true"/> if <paramref name="current"/> shall become part of an ongoing sequence and
+        ///     <see langword="false"/> if <paramref name="current"/> will be the first element in a new sequence.
+        /// </returns>
         public delegate bool SequencePredicate(int current, int previous);
 
         public static List<Sequence> GetSequencesFromNumber(int number, SequencePredicate predicate)
