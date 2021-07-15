@@ -8,10 +8,12 @@
         {
             List<int> numberDigits = new();
 
-            for (int num = number; num > 0; num /= 10)
+            do
             {
-                numberDigits.Insert(0, num % 10);
+                numberDigits.Insert(0, number % 10);
+                number /= 10;
             }
+            while (number > 0);
 
             return numberDigits;
         }
