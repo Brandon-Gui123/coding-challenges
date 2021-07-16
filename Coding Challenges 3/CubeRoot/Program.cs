@@ -17,7 +17,9 @@ namespace CubeRoot
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine($"- 27 : {GetCubeRoot(27)}");
+            Console.WriteLine($"- 729 : {GetCubeRoot(729)}");
+            Console.WriteLine($"- 2 : {GetCubeRoot(2)}");
         }
 
         // One way is to brute force our way
