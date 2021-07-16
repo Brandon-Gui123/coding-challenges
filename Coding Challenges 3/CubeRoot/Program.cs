@@ -19,5 +19,55 @@ namespace CubeRoot
         {
             Console.WriteLine("Hello World!");
         }
+
+        // One way is to brute force our way
+        // using binary search.
+        public static double GetCubeRoot(double num, double error = double.Epsilon)
+        {
+            // the cube root of num will typically give an
+            // answer that is less than num
+            double start = 0;
+            double end = num;
+
+            // intentional while loop so we keep going until we find a solution
+            while (true)
+            {
+                // to perform a binary search, we start with a number in between the two
+                double middle = (start + end) / 2;
+
+                // with the middle number, we check if it is the cube root of num
+                // to do that, we raise the middle number by 3 and compare equality
+                // with num (we'll need an epsilon here)
+                double middleCubed = middle * middle * middle;
+                if (Math.Abs(middleCubed - num) <= error)
+                {
+                    // yes? Then the middle number is our cube root
+                    return middle;
+                }
+                else
+                {
+                    // no? Let's check our middleCubed number
+
+                    // if our cubed value is higher than num,
+                    // it means we have to go lower
+                    if (middleCubed > num)
+                    {
+                        // so we adjust our end to be closer to 0
+                        // to do that, we set end to our current middle value
+                        end = middle;
+                    }
+                    else
+                    {
+                        // our cubed value is lower than num
+                        // it means we have to go higher
+
+                        // so we adjust our start to be closer to end
+                        // to do that, we set start to our current middle value
+                        start = middle;
+                    }
+                }
+            }
+        }
+
     }
 }
