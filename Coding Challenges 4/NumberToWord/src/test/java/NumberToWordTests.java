@@ -23,4 +23,23 @@ public class NumberToWordTests
         String word = NumberToWord.convert(numberToUse);
         assertEquals(expected, word);
     }
+
+    @ParameterizedTest
+    @CsvSource({
+        "10,    ten",
+        "11,    eleven",
+        "12,    twelve",
+        "13,    thirteen",
+        "14,    fourteen",
+        "15,    fifteen",
+        "16,    sixteen",
+        "17,    seventeen",
+        "18,    eighteen",
+        "19,    nineteen"
+    })
+    void testConvertingNumbersWithOneInTensPlace(int numberToUse, String expected)
+    {
+        String word = NumberToWord.convert(numberToUse);
+        assertEquals(expected, word);
+    }
 }
