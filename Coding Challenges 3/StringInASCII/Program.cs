@@ -7,7 +7,13 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.Write("- programmer: ");
+            Console.Write(ToASCII("programmer"));
+            Console.WriteLine();
+
+            Console.Write("- plus: ");
+            Console.Write(ToASCII("plus"));
+            Console.WriteLine();
         }
 
         public static string ToASCII(string str)
