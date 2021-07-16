@@ -13,4 +13,9 @@ public class NumberToWord
             "eight",
             "nine"
     };
+
+    public static String convert(int number)
+    {
+        return SINGLE_DIGIT_NAMES[number];
+    }
 }
