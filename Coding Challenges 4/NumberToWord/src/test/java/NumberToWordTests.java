@@ -121,4 +121,22 @@ public class NumberToWordTests
         String word = NumberToWord.convert(numberToUse);
         assertEquals(expected,word);
     }
+
+    @ParameterizedTest
+    @CsvSource({
+        "101, one hundred one",
+        "102, one hundred two",
+        "103, one hundred three",
+        "104, one hundred four",
+        "105, one hundred five",
+        "106, one hundred six",
+        "107, one hundred seven",
+        "108, one hundred eight",
+        "109, one hundred nine",
+    })
+    void testConvertingHundredsWithOnesAndZeroTens(int numberToUse, String expected)
+    {
+        String word = NumberToWord.convert(numberToUse);
+        assertEquals(expected, word);
+    }
 }
