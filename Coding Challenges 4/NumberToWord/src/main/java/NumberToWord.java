@@ -42,7 +42,11 @@ public class NumberToWord
 
     public static String convert(int number)
     {
-        if (number >= 20)
+        if (number >= 100)
+        {
+            return SINGLE_DIGIT_NAMES[number / 100] + " hundred";
+        }
+        else if (number >= 20)
         {
             int tensPlace = number / 10;
             int onesPlace = number % 10;
