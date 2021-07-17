@@ -139,4 +139,16 @@ public class NumberToWordTests
         String word = NumberToWord.convert(numberToUse);
         assertEquals(expected, word);
     }
+
+    // We test these 2 cases so we can cover both handling 11 to 19, and 21 to 99
+    @ParameterizedTest
+    @CsvSource({
+        "111, one hundred eleven",
+        "121, one hundred twenty one"
+    })
+    void testConvertingHundredsWithOnesAndTens(int numberToUse, String expected)
+    {
+        String word = NumberToWord.convert(numberToUse);
+        assertEquals(expected, word);
+    }
 }
