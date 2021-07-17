@@ -42,4 +42,21 @@ public class NumberToWordTests
         String word = NumberToWord.convert(numberToUse);
         assertEquals(expected, word);
     }
+
+    @ParameterizedTest
+    @CsvSource({
+        "20, twenty",
+        "30, thirty",
+        "40, forty",
+        "50, fifty",
+        "60, sixty",
+        "70, seventy",
+        "80, eighty",
+        "90, ninety"
+    })
+    void testConvertingNumbersTwentyToNinetyWithZeroInOnesPlace(int numberToUse, String expected)
+    {
+        String word = NumberToWord.convert(numberToUse);
+        assertEquals(expected, word);
+    }
 }
