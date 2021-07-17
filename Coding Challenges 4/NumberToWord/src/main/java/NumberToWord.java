@@ -48,7 +48,7 @@ public class NumberToWord
             // the index will map correctly
             // (e.g. in 20, we have to take away 2 from 2 in 20, so that we get 0,
             // which corresponds to the first element "twenty").
-            return BY_TEN_NAMES[(number / 10) - 2];
+            return BY_TEN_NAMES[(number / 10) - 2] + (number % 10 > 0 ? " " + SINGLE_DIGIT_NAMES[number % 10] : "");
         }
         else if (number >= 10)
         {
