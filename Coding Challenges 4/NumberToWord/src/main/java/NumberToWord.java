@@ -40,9 +40,15 @@ public class NumberToWord
             "ninety"
     };
 
+    private static final String HUNDRED = "hundred";
+
     public static String convert(int number)
     {
-        if (number >= 20)
+        if (number >= 100)
+        {
+            return SINGLE_DIGIT_NAMES[number / 100] + " " + HUNDRED;
+        }
+        else if (number >= 20)
         {
             int tensPlace = number / 10;
             int onesPlace = number % 10;

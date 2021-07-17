@@ -83,4 +83,22 @@ public class NumberToWordTests
         String word = NumberToWord.convert(numberToUse);
         assertEquals(expected, word);
     }
+
+    @ParameterizedTest
+    @CsvSource({
+        "100, one hundred",
+        "200, two hundred",
+        "300, three hundred",
+        "400, four hundred",
+        "500, five hundred",
+        "600, six hundred",
+        "700, seven hundred",
+        "800, eight hundred",
+        "900, nine hundred"
+    })
+    void testConvertingHundredsWithZeroTensAndOnes(int numberToUse, String expected)
+    {
+        String word = NumberToWord.convert(numberToUse);
+        assertEquals(expected, word);
+    }
 }
