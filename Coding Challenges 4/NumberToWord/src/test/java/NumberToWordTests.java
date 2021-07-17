@@ -59,4 +59,28 @@ public class NumberToWordTests
         String word = NumberToWord.convert(numberToUse);
         assertEquals(expected, word);
     }
+
+    // The main goal of this test is to check if a number, like 32, will give both
+    // the name of the tens, thirty, and the name of the ones, two, which
+    // will correctly give the word-equivalent of the number, thirty two.
+    // By right there is a hyphen between the two words but the sample output
+    // given by the challenge has no hyphen and also, we'd probably be able to
+    // format the string to put a hyphen later.
+    @ParameterizedTest
+    @CsvSource({
+        "21, twenty one",
+        "22, twenty two",
+        "23, twenty three",
+        "24, twenty four",
+        "25, twenty five",
+        "26, twenty six",
+        "27, twenty seven",
+        "28, twenty eight",
+        "29, twenty nine"
+    })
+    void testConvertingNumbersTwentyWithNonZeroOnesPlace(int numberToUse, String expected)
+    {
+        String word = NumberToWord.convert(numberToUse);
+        assertEquals(expected, word);
+    }
 }
