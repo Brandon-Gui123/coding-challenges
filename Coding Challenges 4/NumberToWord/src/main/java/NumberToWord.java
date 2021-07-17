@@ -46,7 +46,14 @@ public class NumberToWord
     {
         if (number >= 100)
         {
-            return SINGLE_DIGIT_NAMES[number / 100] + " " + HUNDRED;
+            if ((number % 100) / 10 > 0)
+            {
+                return SINGLE_DIGIT_NAMES[number / 100] + " " + HUNDRED + " " + (((number % 100) / 10 == 1) ? "ten" : BY_TEN_NAMES[((number % 100) / 10) - 2]);
+            }
+            else
+            {
+                return SINGLE_DIGIT_NAMES[number / 100] + " " + HUNDRED;
+            }
         }
         else if (number >= 20)
         {
