@@ -28,6 +28,18 @@ public class NumberToWord
             "nineteen"
     };
 
+    private static final String[] BY_TEN_NAMES =
+    {
+            "twenty",
+            "thirty",
+            "forty",
+            "fifty",
+            "sixty",
+            "seventy",
+            "eighty",
+            "ninety"
+    };
+
     public static String convert(int number)
     {
         if (number >= 10)
