@@ -101,4 +101,24 @@ public class NumberToWordTests
         String word = NumberToWord.convert(numberToUse);
         assertEquals(expected, word);
     }
+
+    // Main goal is to check if the method is able to detect a non-zero value
+    // in the tens place and give the correct name of the number
+    @ParameterizedTest
+    @CsvSource({
+        "110, one hundred ten",
+        "120, one hundred twenty",
+        "130, one hundred thirty",
+        "140, one hundred forty",
+        "150, one hundred fifty",
+        "160, one hundred sixty",
+        "170, one hundred seventy",
+        "180, one hundred eighty",
+        "190, one hundred ninety"
+    })
+    void testConvertingHundredsWithTensAndZeroOnes(int numberToUse, String expected)
+    {
+        String word = NumberToWord.convert(numberToUse);
+        assertEquals(expected,word);
+    }
 }
