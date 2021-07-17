@@ -46,15 +46,25 @@ public class NumberToWord
     {
         if (number >= 100)
         {
-            if ((number % 100) / 10 > 0)
+            if ((number % 100) / 10 > 0)    // number with non-zero in tens place
             {
-                return SINGLE_DIGIT_NAMES[number / 100] + " " + HUNDRED + " " + (((number % 100) / 10 == 1) ? "ten" : BY_TEN_NAMES[((number % 100) / 10) - 2]);
+                if ((number % 100) / 10 == 1)   // one in tens place
+                {
+                    return SINGLE_DIGIT_NAMES[number / 100] + " " + HUNDRED + " "
+                            + TEN_TO_NINETEEN_NAMES[number % 10];
+                }
+                else    // more than one in tens place
+                {
+                    return SINGLE_DIGIT_NAMES[number / 100] + " " + HUNDRED + " "
+                            + BY_TEN_NAMES[(number / 10) % 10 - 2]
+                            + ((number % 10 == 0) ? "" : " " + SINGLE_DIGIT_NAMES[number % 10]);
+                }
             }
-            else if (number % 10 > 0)
+            else if ((number / 10) % 10 == 0 && number % 10 > 0)       // number with zero in tens place but more than 0 for ones
             {
                 return SINGLE_DIGIT_NAMES[number / 100] + " " + HUNDRED + " " + SINGLE_DIGIT_NAMES[number % 10];
             }
-            else
+            else    // number with 0 in tens and ones places
             {
                 return SINGLE_DIGIT_NAMES[number / 100] + " " + HUNDRED;
             }
