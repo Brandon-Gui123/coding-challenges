@@ -46,7 +46,7 @@ public class NumberToWord
     {
         if (number >= 100)
         {
-            return SINGLE_DIGIT_NAMES[number / 100] + " hundred";
+            return SINGLE_DIGIT_NAMES[number / 100] + " " + HUNDRED;
         }
         else if (number >= 20)
         {
