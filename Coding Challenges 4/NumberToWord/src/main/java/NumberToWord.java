@@ -40,6 +40,8 @@ public class NumberToWord
             "ninety"
     };
 
+    private static final String HUNDRED = "hundred";
+
     public static String convert(int number)
     {
         if (number >= 100)
