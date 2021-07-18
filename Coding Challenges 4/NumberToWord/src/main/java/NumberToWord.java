@@ -55,18 +55,18 @@ public class NumberToWord
                 if (tensPlace == 1)   // one in tens place
                 {
                     return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED + " "
-                            + TEN_TO_NINETEEN_NAMES[number % 10];
+                            + TEN_TO_NINETEEN_NAMES[onesPlace];
                 }
                 else    // more than one in tens place
                 {
                     return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED + " "
                             + BY_TEN_NAMES[tensPlace - 2]
-                            + ((number % 10 == 0) ? "" : " " + SINGLE_DIGIT_NAMES[number % 10]);
+                            + ((onesPlace == 0) ? "" : " " + SINGLE_DIGIT_NAMES[onesPlace]);
                 }
             }
-            else if (tensPlace == 0 && number % 10 > 0)       // number with zero in tens place but more than 0 for ones
+            else if (tensPlace == 0 && onesPlace > 0)       // number with zero in tens place but more than 0 for ones
             {
-                return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED + " " + SINGLE_DIGIT_NAMES[number % 10];
+                return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED + " " + SINGLE_DIGIT_NAMES[onesPlace];
             }
             else    // number with 0 in tens and ones places
             {
@@ -90,7 +90,7 @@ public class NumberToWord
         }
         else if (number >= 10)
         {
-            return TEN_TO_NINETEEN_NAMES[number % 10];
+            return TEN_TO_NINETEEN_NAMES[onesPlace];
         }
         else
         {
