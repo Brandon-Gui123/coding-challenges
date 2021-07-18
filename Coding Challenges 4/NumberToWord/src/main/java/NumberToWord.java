@@ -60,7 +60,7 @@ public class NumberToWord
                 else    // more than one in tens place
                 {
                     return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED + " "
-                            + BY_TEN_NAMES[tensPlace - 2]
+                            + getByTenNamesWithTensPlaceValue(tensPlace)
                             + ((onesPlace == 0) ? "" : " " + SINGLE_DIGIT_NAMES[onesPlace]);
                 }
             }
@@ -77,15 +77,11 @@ public class NumberToWord
         {
             if (onesPlace != 0)
             {
-                // we have to reduce the number by 2 so that
-                // the index will map correctly
-                // (e.g. in 20, we have to take away 2 from 2 in 20, so that we get 0,
-                // which corresponds to the first element "twenty").
-                return BY_TEN_NAMES[tensPlace - 2] + " " + SINGLE_DIGIT_NAMES[onesPlace];
+                return getByTenNamesWithTensPlaceValue(tensPlace) + " " + SINGLE_DIGIT_NAMES[onesPlace];
             }
             else
             {
-                return BY_TEN_NAMES[tensPlace - 2];
+                return getByTenNamesWithTensPlaceValue(tensPlace);
             }
         }
         else if (number >= 10)
