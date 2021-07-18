@@ -44,36 +44,37 @@ public class NumberToWord
 
     public static String convert(int number)
     {
+        int hundredsPlace = number / 100;
+        int tensPlace = (number / 10) % 10;
+        int onesPlace = number % 10;
+
         if (number >= 100)
         {
-            if ((number % 100) / 10 > 0)    // number with non-zero in tens place
+            if (tensPlace > 0)    // number with non-zero in tens place
             {
-                if ((number % 100) / 10 == 1)   // one in tens place
+                if (tensPlace == 1)   // one in tens place
                 {
-                    return SINGLE_DIGIT_NAMES[number / 100] + " " + HUNDRED + " "
-                            + TEN_TO_NINETEEN_NAMES[number % 10];
+                    return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED + " "
+                            + TEN_TO_NINETEEN_NAMES[onesPlace];
                 }
                 else    // more than one in tens place
                 {
-                    return SINGLE_DIGIT_NAMES[number / 100] + " " + HUNDRED + " "
-                            + BY_TEN_NAMES[(number / 10) % 10 - 2]
-                            + ((number % 10 == 0) ? "" : " " + SINGLE_DIGIT_NAMES[number % 10]);
+                    return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED + " "
+                            + BY_TEN_NAMES[tensPlace - 2]
+                            + ((onesPlace == 0) ? "" : " " + SINGLE_DIGIT_NAMES[onesPlace]);
                 }
             }
-            else if ((number / 10) % 10 == 0 && number % 10 > 0)       // number with zero in tens place but more than 0 for ones
+            else if (tensPlace == 0 && onesPlace > 0)       // number with zero in tens place but more than 0 for ones
             {
-                return SINGLE_DIGIT_NAMES[number / 100] + " " + HUNDRED + " " + SINGLE_DIGIT_NAMES[number % 10];
+                return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED + " " + SINGLE_DIGIT_NAMES[onesPlace];
             }
             else    // number with 0 in tens and ones places
             {
-                return SINGLE_DIGIT_NAMES[number / 100] + " " + HUNDRED;
+                return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED;
             }
         }
         else if (number >= 20)
         {
-            int tensPlace = number / 10;
-            int onesPlace = number % 10;
-
             if (onesPlace != 0)
             {
                 // we have to reduce the number by 2 so that
@@ -89,7 +90,7 @@ public class NumberToWord
         }
         else if (number >= 10)
         {
-            return TEN_TO_NINETEEN_NAMES[number % 10];
+            return TEN_TO_NINETEEN_NAMES[onesPlace];
         }
         else
         {
