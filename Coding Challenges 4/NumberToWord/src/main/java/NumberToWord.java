@@ -97,4 +97,10 @@ public class NumberToWord
             return SINGLE_DIGIT_NAMES[number];
         }
     }
+
+    private static String getByTenNamesWithTensPlaceValue(int tensPlaceValue)
+    {
+        // -2 so that 20 corresponds to the first element in the array
+        return BY_TEN_NAMES[tensPlaceValue - 2];
+    }
 }
