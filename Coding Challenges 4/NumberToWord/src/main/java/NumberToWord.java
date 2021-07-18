@@ -54,30 +54,30 @@ public class NumberToWord
             {
                 if (tensPlace == 1)   // one in tens place
                 {
-                    return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED + " "
+                    return getNameOfDigit(hundredsPlace) + " " + HUNDRED + " "
                             + TEN_TO_NINETEEN_NAMES[onesPlace];
                 }
                 else    // more than one in tens place
                 {
-                    return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED + " "
+                    return getNameOfDigit(hundredsPlace) + " " + HUNDRED + " "
                             + getByTenNamesWithTensPlaceValue(tensPlace)
-                            + ((onesPlace == 0) ? "" : " " + SINGLE_DIGIT_NAMES[onesPlace]);
+                            + ((onesPlace == 0) ? "" : " " + getNameOfDigit(onesPlace));
                 }
             }
             else if (tensPlace == 0 && onesPlace > 0)       // number with zero in tens place but more than 0 for ones
             {
-                return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED + " " + SINGLE_DIGIT_NAMES[onesPlace];
+                return getNameOfDigit(hundredsPlace) + " " + HUNDRED + " " + getNameOfDigit(onesPlace);
             }
             else    // number with 0 in tens and ones places
             {
-                return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED;
+                return getNameOfDigit(hundredsPlace) + " " + HUNDRED;
             }
         }
         else if (number >= 20)
         {
             if (onesPlace != 0)
             {
-                return getByTenNamesWithTensPlaceValue(tensPlace) + " " + SINGLE_DIGIT_NAMES[onesPlace];
+                return getByTenNamesWithTensPlaceValue(tensPlace) + " " + getNameOfDigit(onesPlace);
             }
             else
             {
@@ -90,7 +90,7 @@ public class NumberToWord
         }
         else
         {
-            return SINGLE_DIGIT_NAMES[number];
+            return getNameOfDigit(number);
         }
     }
 
