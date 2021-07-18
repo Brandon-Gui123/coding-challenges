@@ -49,9 +49,9 @@ public class NumberToWord
 
         if (number >= 100)
         {
-            if ((number % 100) / 10 > 0)    // number with non-zero in tens place
+            if (tensPlace > 0)    // number with non-zero in tens place
             {
-                if ((number % 100) / 10 == 1)   // one in tens place
+                if (tensPlace == 1)   // one in tens place
                 {
                     return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED + " "
                             + TEN_TO_NINETEEN_NAMES[number % 10];
@@ -59,11 +59,11 @@ public class NumberToWord
                 else    // more than one in tens place
                 {
                     return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED + " "
-                            + BY_TEN_NAMES[(number / 10) % 10 - 2]
+                            + BY_TEN_NAMES[tensPlace - 2]
                             + ((number % 10 == 0) ? "" : " " + SINGLE_DIGIT_NAMES[number % 10]);
                 }
             }
-            else if ((number / 10) % 10 == 0 && number % 10 > 0)       // number with zero in tens place but more than 0 for ones
+            else if (tensPlace == 0 && number % 10 > 0)       // number with zero in tens place but more than 0 for ones
             {
                 return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED + " " + SINGLE_DIGIT_NAMES[number % 10];
             }
@@ -74,7 +74,6 @@ public class NumberToWord
         }
         else if (number >= 20)
         {
-            int tensPlace = number / 10;
             int onesPlace = number % 10;
 
             if (onesPlace != 0)
