@@ -46,6 +46,7 @@ public class NumberToWord
     {
         int hundredsPlace = number / 100;
         int tensPlace = (number / 10) % 10;
+        int onesPlace = number % 10;
 
         if (number >= 100)
         {
@@ -74,8 +75,6 @@ public class NumberToWord
         }
         else if (number >= 20)
         {
-            int onesPlace = number % 10;
-
             if (onesPlace != 0)
             {
                 // we have to reduce the number by 2 so that
