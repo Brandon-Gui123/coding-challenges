@@ -52,23 +52,23 @@ public class NumberToWord
             {
                 if ((number % 100) / 10 == 1)   // one in tens place
                 {
-                    return SINGLE_DIGIT_NAMES[number / 100] + " " + HUNDRED + " "
+                    return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED + " "
                             + TEN_TO_NINETEEN_NAMES[number % 10];
                 }
                 else    // more than one in tens place
                 {
-                    return SINGLE_DIGIT_NAMES[number / 100] + " " + HUNDRED + " "
+                    return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED + " "
                             + BY_TEN_NAMES[(number / 10) % 10 - 2]
                             + ((number % 10 == 0) ? "" : " " + SINGLE_DIGIT_NAMES[number % 10]);
                 }
             }
             else if ((number / 10) % 10 == 0 && number % 10 > 0)       // number with zero in tens place but more than 0 for ones
             {
-                return SINGLE_DIGIT_NAMES[number / 100] + " " + HUNDRED + " " + SINGLE_DIGIT_NAMES[number % 10];
+                return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED + " " + SINGLE_DIGIT_NAMES[number % 10];
             }
             else    // number with 0 in tens and ones places
             {
-                return SINGLE_DIGIT_NAMES[number / 100] + " " + HUNDRED;
+                return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED;
             }
         }
         else if (number >= 20)
