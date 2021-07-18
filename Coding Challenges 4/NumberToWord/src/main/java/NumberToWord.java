@@ -99,4 +99,9 @@ public class NumberToWord
         // -2 so that 20 corresponds to the first element in the array
         return BY_TEN_NAMES[tensPlaceValue - 2];
     }
+
+    private static String getNameOfDigit(int digit)
+    {
+        return SINGLE_DIGIT_NAMES[digit];
+    }
 }
