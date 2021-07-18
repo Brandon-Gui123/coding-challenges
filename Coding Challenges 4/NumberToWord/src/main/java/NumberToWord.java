@@ -44,6 +44,8 @@ public class NumberToWord
 
     public static String convert(int number)
     {
+        int hundredsPlace = number / 100;
+
         if (number >= 100)
         {
             if ((number % 100) / 10 > 0)    // number with non-zero in tens place
