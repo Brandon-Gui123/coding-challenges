@@ -16,7 +16,6 @@ public class NumberToWord
 
     private static final String[] TEN_TO_NINETEEN_NAMES =
     {
-            "ten",
             "eleven",
             "twelve",
             "thirteen",
@@ -56,7 +55,7 @@ public class NumberToWord
                 if (tensPlace == 1)   // one in tens place
                 {
                     return getNameOfDigit(hundredsPlace) + " " + HUNDRED + " "
-                            + TEN_TO_NINETEEN_NAMES[onesPlace];
+                            + (onesPlace == 0 ? "ten" : TEN_TO_NINETEEN_NAMES[onesPlace - 1]);
                 }
                 else    // more than one in tens place
                 {
@@ -87,7 +86,7 @@ public class NumberToWord
         }
         else if (number >= 10)
         {
-            return TEN_TO_NINETEEN_NAMES[onesPlace];
+            return (number == 10 ? "ten" : TEN_TO_NINETEEN_NAMES[onesPlace - 1]);
         }
         else
         {
