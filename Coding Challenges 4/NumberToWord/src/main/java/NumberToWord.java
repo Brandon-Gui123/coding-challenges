@@ -105,4 +105,11 @@ public class NumberToWord
     {
         return SINGLE_DIGIT_NAMES[digit];
     }
+
+    private static String getElevenToNineteenNameBasedOnOnesPlace(int onesPlaceValue)
+    {
+        // -1 so that 1 in ones place corresponds to the first element
+        // array, so 11 will correspond to eleven
+        return ELEVEN_TO_NINETEEN_NAMES[onesPlaceValue - 1];
+    }
 }
