@@ -14,9 +14,8 @@ public class NumberToWord
             "nine"
     };
 
-    private static final String[] TEN_TO_NINETEEN_NAMES =
+    private static final String[] ELEVEN_TO_NINETEEN_NAMES =
     {
-            "ten",
             "eleven",
             "twelve",
             "thirteen",
@@ -28,8 +27,9 @@ public class NumberToWord
             "nineteen"
     };
 
-    private static final String[] BY_TEN_NAMES =
+    private static final String[] TENS_PLACE_NAMES =
     {
+            "tens",
             "twenty",
             "thirty",
             "forty",
@@ -55,12 +55,12 @@ public class NumberToWord
                 if (tensPlace == 1)   // one in tens place
                 {
                     return getNameOfDigit(hundredsPlace) + " " + HUNDRED + " "
-                            + TEN_TO_NINETEEN_NAMES[onesPlace];
+                            + (onesPlace == 0 ? "ten" : ELEVEN_TO_NINETEEN_NAMES[onesPlace - 1]);
                 }
                 else    // more than one in tens place
                 {
                     return getNameOfDigit(hundredsPlace) + " " + HUNDRED + " "
-                            + getByTenNamesWithTensPlaceValue(tensPlace)
+                            + getNameOfTensPlace(tensPlace)
                             + ((onesPlace == 0) ? "" : " " + getNameOfDigit(onesPlace));
                 }
             }
@@ -77,16 +77,16 @@ public class NumberToWord
         {
             if (onesPlace != 0)
             {
-                return getByTenNamesWithTensPlaceValue(tensPlace) + " " + getNameOfDigit(onesPlace);
+                return getNameOfTensPlace(tensPlace) + " " + getNameOfDigit(onesPlace);
             }
             else
             {
-                return getByTenNamesWithTensPlaceValue(tensPlace);
+                return getNameOfTensPlace(tensPlace);
             }
         }
         else if (number >= 10)
         {
-            return TEN_TO_NINETEEN_NAMES[onesPlace];
+            return (number == 10 ? "ten" : ELEVEN_TO_NINETEEN_NAMES[onesPlace - 1]);
         }
         else
         {
@@ -94,10 +94,10 @@ public class NumberToWord
         }
     }
 
-    private static String getByTenNamesWithTensPlaceValue(int tensPlaceValue)
+    private static String getNameOfTensPlace(int tensPlaceValue)
     {
         // -2 so that 20 corresponds to the first element in the array
-        return BY_TEN_NAMES[tensPlaceValue - 2];
+        return TENS_PLACE_NAMES[tensPlaceValue - 1];
     }
 
     private static String getNameOfDigit(int digit)
