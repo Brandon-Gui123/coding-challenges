@@ -60,7 +60,7 @@ public class NumberToWord
                 else    // more than one in tens place
                 {
                     return getNameOfDigit(hundredsPlace) + " " + HUNDRED + " "
-                            + getByTenNamesWithTensPlaceValue(tensPlace)
+                            + getNameOfTensPlace(tensPlace)
                             + ((onesPlace == 0) ? "" : " " + getNameOfDigit(onesPlace));
                 }
             }
@@ -77,11 +77,11 @@ public class NumberToWord
         {
             if (onesPlace != 0)
             {
-                return getByTenNamesWithTensPlaceValue(tensPlace) + " " + getNameOfDigit(onesPlace);
+                return getNameOfTensPlace(tensPlace) + " " + getNameOfDigit(onesPlace);
             }
             else
             {
-                return getByTenNamesWithTensPlaceValue(tensPlace);
+                return getNameOfTensPlace(tensPlace);
             }
         }
         else if (number >= 10)
@@ -94,7 +94,7 @@ public class NumberToWord
         }
     }
 
-    private static String getByTenNamesWithTensPlaceValue(int tensPlaceValue)
+    private static String getNameOfTensPlace(int tensPlaceValue)
     {
         // -2 so that 20 corresponds to the first element in the array
         return TENS_PLACE_NAMES[tensPlaceValue - 2];
