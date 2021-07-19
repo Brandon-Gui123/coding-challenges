@@ -14,9 +14,8 @@ public class NumberToWord
             "nine"
     };
 
-    private static final String[] TEN_TO_NINETEEN_NAMES =
+    private static final String[] ELEVEN_TO_NINETEEN_NAMES =
     {
-            "ten",
             "eleven",
             "twelve",
             "thirteen",
@@ -28,8 +27,9 @@ public class NumberToWord
             "nineteen"
     };
 
-    private static final String[] BY_TEN_NAMES =
+    private static final String[] TENS_PLACE_NAMES =
     {
+            "tens",
             "twenty",
             "thirty",
             "forty",
@@ -54,47 +54,62 @@ public class NumberToWord
             {
                 if (tensPlace == 1)   // one in tens place
                 {
-                    return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED + " "
-                            + TEN_TO_NINETEEN_NAMES[onesPlace];
+                    return getNameOfDigit(hundredsPlace) + " " + HUNDRED + " "
+                            + (onesPlace == 0 ? "ten" : getElevenToNineteenNameBasedOnOnesPlace(onesPlace));
                 }
                 else    // more than one in tens place
                 {
-                    return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED + " "
-                            + BY_TEN_NAMES[tensPlace - 2]
-                            + ((onesPlace == 0) ? "" : " " + SINGLE_DIGIT_NAMES[onesPlace]);
+                    return getNameOfDigit(hundredsPlace) + " " + HUNDRED + " "
+                            + getNameOfTensPlace(tensPlace)
+                            + ((onesPlace == 0) ? "" : " " + getNameOfDigit(onesPlace));
                 }
             }
             else if (tensPlace == 0 && onesPlace > 0)       // number with zero in tens place but more than 0 for ones
             {
-                return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED + " " + SINGLE_DIGIT_NAMES[onesPlace];
+                return getNameOfDigit(hundredsPlace) + " " + HUNDRED + " " + getNameOfDigit(onesPlace);
             }
             else    // number with 0 in tens and ones places
             {
-                return SINGLE_DIGIT_NAMES[hundredsPlace] + " " + HUNDRED;
+                return getNameOfDigit(hundredsPlace) + " " + HUNDRED;
             }
         }
         else if (number >= 20)
         {
             if (onesPlace != 0)
             {
-                // we have to reduce the number by 2 so that
-                // the index will map correctly
-                // (e.g. in 20, we have to take away 2 from 2 in 20, so that we get 0,
-                // which corresponds to the first element "twenty").
-                return BY_TEN_NAMES[tensPlace - 2] + " " + SINGLE_DIGIT_NAMES[onesPlace];
+                return getNameOfTensPlace(tensPlace) + " " + getNameOfDigit(onesPlace);
             }
             else
             {
-                return BY_TEN_NAMES[tensPlace - 2];
+                return getNameOfTensPlace(tensPlace);
             }
         }
         else if (number >= 10)
         {
-            return TEN_TO_NINETEEN_NAMES[onesPlace];
+            return (number == 10 ? "ten" : getElevenToNineteenNameBasedOnOnesPlace(onesPlace));
         }
         else
         {
-            return SINGLE_DIGIT_NAMES[number];
+            return getNameOfDigit(number);
         }
+    }
+
+    private static String getNameOfTensPlace(int tensPlaceValue)
+    {
+        // -1 so that 1 in tens place corresponds to the first element
+        // in the array (so that 10 is ten).
+        return TENS_PLACE_NAMES[tensPlaceValue - 1];
+    }
+
+    private static String getNameOfDigit(int digit)
+    {
+        return SINGLE_DIGIT_NAMES[digit];
+    }
+
+    private static String getElevenToNineteenNameBasedOnOnesPlace(int onesPlaceValue)
+    {
+        // -1 so that 1 in ones place corresponds to the first element
+        // array, so 11 will correspond to eleven
+        return ELEVEN_TO_NINETEEN_NAMES[onesPlaceValue - 1];
     }
 }
