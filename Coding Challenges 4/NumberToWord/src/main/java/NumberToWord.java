@@ -55,7 +55,7 @@ public class NumberToWord
                 if (tensPlace == 1)   // one in tens place
                 {
                     return getNameOfDigit(hundredsPlace) + " " + HUNDRED + " "
-                            + (onesPlace == 0 ? "ten" : ELEVEN_TO_NINETEEN_NAMES[onesPlace - 1]);
+                            + (onesPlace == 0 ? "ten" : getElevenToNineteenNameBasedOnOnesPlace(onesPlace));
                 }
                 else    // more than one in tens place
                 {
@@ -86,7 +86,7 @@ public class NumberToWord
         }
         else if (number >= 10)
         {
-            return (number == 10 ? "ten" : ELEVEN_TO_NINETEEN_NAMES[onesPlace - 1]);
+            return (number == 10 ? "ten" : getElevenToNineteenNameBasedOnOnesPlace(onesPlace));
         }
         else
         {
