@@ -44,54 +44,58 @@ public class NumberToWord
 
     public static String convert(int number)
     {
+        if (number == 0)
+        {
+            // this is the only time when we need to say "zero"
+            return "zero";
+        }
+
         int hundredsPlace = number / 100;
         int tensPlace = (number / 10) % 10;
         int onesPlace = number % 10;
 
-        if (number >= 100)
+        String numberName = "";
+
+        if (hundredsPlace > 0)
         {
-            if (tensPlace > 0)    // number with non-zero in tens place
+            numberName += getNameOfDigit(hundredsPlace) + " " + HUNDRED;
+
+            // space for readability
+            if (tensPlace > 0 || onesPlace > 0)
             {
-                if (tensPlace == 1)   // one in tens place
-                {
-                    return getNameOfDigit(hundredsPlace) + " " + HUNDRED + " "
-                            + (onesPlace == 0 ? "ten" : getElevenToNineteenNameBasedOnOnesPlace(onesPlace));
-                }
-                else    // more than one in tens place
-                {
-                    return getNameOfDigit(hundredsPlace) + " " + HUNDRED + " "
-                            + getNameOfTensPlace(tensPlace)
-                            + ((onesPlace == 0) ? "" : " " + getNameOfDigit(onesPlace));
-                }
-            }
-            else if (tensPlace == 0 && onesPlace > 0)       // number with zero in tens place but more than 0 for ones
-            {
-                return getNameOfDigit(hundredsPlace) + " " + HUNDRED + " " + getNameOfDigit(onesPlace);
-            }
-            else    // number with 0 in tens and ones places
-            {
-                return getNameOfDigit(hundredsPlace) + " " + HUNDRED;
+                numberName += " ";
             }
         }
-        else if (number >= 20)
+
+        if (tensPlace > 0)
         {
-            if (onesPlace != 0)
+            if (tensPlace == 1 && onesPlace > 0)
             {
-                return getNameOfTensPlace(tensPlace) + " " + getNameOfDigit(onesPlace);
+                // we have to say eleven instead of ten one here
+                // and so on for the others
+                numberName += getElevenToNineteenNameBasedOnOnesPlace(onesPlace);
+
+                // we're already done here
+                return numberName;
             }
             else
             {
-                return getNameOfTensPlace(tensPlace);
+                numberName += getNameOfTensPlace(tensPlace);
+            }
+
+            // space for readability
+            if (onesPlace > 0)
+            {
+                numberName += " ";
             }
         }
-        else if (number >= 10)
+
+        if (onesPlace > 0)
         {
-            return (number == 10 ? "ten" : getElevenToNineteenNameBasedOnOnesPlace(onesPlace));
+            numberName += getNameOfDigit(onesPlace);
         }
-        else
-        {
-            return getNameOfDigit(number);
-        }
+
+        return numberName;
     }
 
     private static String getNameOfTensPlace(int tensPlaceValue)
