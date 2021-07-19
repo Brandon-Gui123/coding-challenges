@@ -28,7 +28,7 @@ public class NumberToWord
             "nineteen"
     };
 
-    private static final String[] BY_TEN_NAMES =
+    private static final String[] TENS_PLACE_NAMES =
     {
             "twenty",
             "thirty",
@@ -97,7 +97,7 @@ public class NumberToWord
     private static String getByTenNamesWithTensPlaceValue(int tensPlaceValue)
     {
         // -2 so that 20 corresponds to the first element in the array
-        return BY_TEN_NAMES[tensPlaceValue - 2];
+        return TENS_PLACE_NAMES[tensPlaceValue - 2];
     }
 
     private static String getNameOfDigit(int digit)
