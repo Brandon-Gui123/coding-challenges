@@ -96,7 +96,8 @@ public class NumberToWord
 
     private static String getNameOfTensPlace(int tensPlaceValue)
     {
-        // -2 so that 20 corresponds to the first element in the array
+        // -1 so that 1 in tens place corresponds to the first element
+        // in the array (so that 10 is ten).
         return TENS_PLACE_NAMES[tensPlaceValue - 1];
     }
 
