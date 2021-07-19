@@ -29,7 +29,7 @@ public class NumberToWord
 
     private static final String[] TENS_PLACE_NAMES =
     {
-            "tens",
+            "ten",
             "twenty",
             "thirty",
             "forty",
