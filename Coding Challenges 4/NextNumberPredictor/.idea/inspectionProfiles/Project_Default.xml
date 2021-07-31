@@ -1,0 +1,48 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="AssignmentOrReturnOfFieldWithMutableType" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignorePrivateMethods" value="false" />
+    </inspection_tool>
+    <inspection_tool class="BooleanExpressionMayBeConditional" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="ClassWithTooManyDependencies" enabled="false" level="WEAK WARNING" enabled_by_default="false">
+      <option name="limit" value="10" />
+    </inspection_tool>
+    <inspection_tool class="FieldNamingConvention" enabled="true" level="TYPO" enabled_by_default="true">
+      <extension name="ConstantNamingConvention" enabled="true">
+        <option name="m_regex" value="[A-Z][A-Z_\d]*" />
+        <option name="m_minLength" value="1" />
+        <option name="m_maxLength" value="32" />
+      </extension>
+      <extension name="EnumeratedConstantNamingConvention" enabled="true">
+        <option name="m_regex" value="[A-Z][A-Z_\d]*" />
+        <option name="m_minLength" value="1" />
+        <option name="m_maxLength" value="32" />
+      </extension>
+    </inspection_tool>
+    <inspection_tool class="NewMethodNamingConvention" enabled="true" level="TYPO" enabled_by_default="true">
+      <extension name="InstanceMethodNamingConvention" enabled="true" />
+      <extension name="JUnit3MethodNamingConvention" enabled="true" />
+      <extension name="JUnit4MethodNamingConvention" enabled="true" />
+      <extension name="NativeMethodNamingConvention" enabled="true" />
+      <extension name="StaticMethodNamingConvention" enabled="true" />
+      <extension name="TestNGMethodNamingConvention" enabled="true" />
+    </inspection_tool>
+    <inspection_tool class="RedundantImplements" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoreSerializable" value="false" />
+      <option name="ignoreCloneable" value="false" />
+    </inspection_tool>
+    <inspection_tool class="TypeMayBeWeakened" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="useRighthandTypeAsWeakestTypeInAssignments" value="true" />
+      <option name="useParameterizedTypeForCollectionMethods" value="true" />
+      <option name="doNotWeakenToJavaLangObject" value="true" />
+      <option name="onlyWeakentoInterface" value="true" />
+    </inspection_tool>
+    <inspection_tool class="UpperCaseFieldNameNotConstant" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="WeakerAccess" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="SUGGEST_PACKAGE_LOCAL_FOR_MEMBERS" value="true" />
+      <option name="SUGGEST_PACKAGE_LOCAL_FOR_TOP_CLASSES" value="true" />
+      <option name="SUGGEST_PRIVATE_FOR_INNERS" value="true" />
+    </inspection_tool>
+  </profile>
+</component>
