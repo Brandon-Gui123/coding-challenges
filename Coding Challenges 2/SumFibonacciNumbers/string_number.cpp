@@ -1,64 +1,85 @@
 #include "string_number.h"
 
-#include <string>               // for std::to_string
-#include <vector>               // for std::vector
+#include <string>
 
-namespace brandon_utils
+brandon_utils::string_number::string_number(int i) : num{ std::to_string(i) }
+{}
+
+bool brandon_utils::operator==(const string_number& lhs, const string_number& rhs)
 {
-    string_number::string_number(int integer)
+    return lhs.num == rhs.num;
+}
+
+bool brandon_utils::operator!=(const string_number& lhs, const string_number& rhs)
+{
+    return lhs.num != rhs.num;
+}
+
+brandon_utils::string_number brandon_utils::operator+(const string_number& lhs, const string_number& rhs)
+{
+    string_number sum{ lhs };
+    bool carry_over{ false };
+
+    int sum_index{ static_cast<int>(sum.num.length() - 1) };
+
+    for (int rhs_index{ static_cast<int>(rhs.num.length()) - 1 }; rhs_index >= 0; --sum_index, --rhs_index)
     {
-        is_positive = integer >= 0;
-        digits = {};
-
-        do
+        if (sum_index == -1)
         {
-            // a char is a byte and we technically can store numbers as is.
-            // only thing to take note is that when sent to standard out,
-            // it displays a character and not an integer
-            digits.insert(digits.begin(), integer % 10);
-            integer /= 10;
-        }
-        while (integer != 0);
-    }
+            // we need to add digits to the sum variable
+            sum.num.insert(0, 1, '0');
 
-    string_number string_number::add(const string_number& positive_left, const string_number& positive_right)
-    {
-        string_number result{ positive_left };
-
-        auto result_rev_it{ result.digits.rbegin() };
-        auto right_rev_it{ positive_right.digits.rbegin() };
-
-        bool must_carry{ false };
-        while (result_rev_it != result.digits.rend() && right_rev_it != positive_right.digits.rend())
-        {
-            *result_rev_it += *right_rev_it + (must_carry ? 1 : 0);
-
-            if (*result_rev_it >= 10)
-            {
-                must_carry = true;
-                *result_rev_it %= 10;
-            }
-            else
-            {
-                must_carry = false;
-            }
-
-            ++result_rev_it;
-            ++right_rev_it;
+            // so we can read the very first digit in the variable
+            sum_index = 0;
         }
 
-        // if the Boolean variable is true here, it means
-        // a new digit must be added to the beginning
-        if (must_carry)
+        int digit_sum{ (sum.num.at(sum_index) - '0') + (rhs.num.at(rhs_index) - '0') };
+
+        if (carry_over)
         {
-            result.digits.insert(result.digits.begin(), 1);
+            digit_sum += 1;
         }
 
-        return result;
+        if (digit_sum >= 10)
+        {
+            digit_sum = digit_sum % 10;
+            carry_over = true;
+        }
+        else
+        {
+            carry_over = false;
+        }
+
+        sum.num.at(sum_index) = digit_sum + '0';
     }
 
-    string_number operator+(const string_number& left, const string_number& right)
+    // any more carry overs?
+    while (carry_over)
     {
-        return string_number::add(left, right);
+        if (sum_index == -1)
+        {
+            // we need to add digits to the sum variable
+            sum.num.insert(0, 1, '0');
+
+            // so we can read the very first digit in the variable
+            sum_index = 0;
+        }
+
+        int digit_sum{ (sum.num[sum_index] - '0') + 1 };
+
+        if (digit_sum >= 10)
+        {
+            digit_sum = digit_sum % 10;
+            carry_over = true;
+        }
+        else
+        {
+            carry_over = false;
+        }
+
+        sum.num.at(sum_index) = digit_sum + '0';
+        --sum_index;
     }
+
+    return sum;
 }
