@@ -1,21 +1,17 @@
 #include <iostream>     // for console
+#include <vector>
 
 #include "fibonacci_utils.h"
+#include "string_number.h"
 
 int main()
 {
-    std::vector<long double> fibonacci_sequence{ fibonacci::generate(20) };
+    std::vector<brandon_utils::string_number> sequences{ fibonacci::generate(99) };
 
-    std::cout.precision(100);
-
-    long double sum{ 0 };
-    for (const auto num : fibonacci_sequence)
+    for (const auto& seq : sequences)
     {
-        std::cout << num << '\n';
-        sum += num;
+        std::cout << seq.num << '\n';
     }
 
-    std::cout << "Sum: " << sum << '\n';
-    
     return 0;
 }
