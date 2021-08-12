@@ -1,3 +1,5 @@
+#include "my_utils.h"
+
 #include <cctype>
 #include <iostream>
 #include <string>
@@ -8,14 +10,7 @@ int main()
     std::string example{ "The sunset sets at twelve o' clock." };
 
     // remove all the characters that aren't alphabets
-    std::string onlyLetters{};
-    for (char letter : example)
-    {
-        if (std::isalpha(letter))
-        {
-            onlyLetters.push_back(letter);
-        }
-    }
+    std::string onlyLetters{ my_utils::remove_non_alpha(example) };
 
     // convert all uppercase characters to lowercase
     std::string lowercaseLetters{};
