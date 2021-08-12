@@ -5,22 +5,22 @@ namespace my_utils
 {
     std::string remove_non_alpha(const std::string& str)
     {
-        std::string modifiedString{};
+        std::string modified_string{};
 
         for (char ch : str)
         {
             if (std::isalpha(ch))
             {
-                modifiedString.push_back(ch);
+                modified_string.push_back(ch);
             }
         }
 
-        return modifiedString;
+        return modified_string;
     }
 
-    void to_lowercase(std::string& strToModify)
+    void to_lowercase(std::string& str_to_modify)
     {
-        for (char& ch : strToModify)
+        for (char& ch : str_to_modify)
         {
             ch = std::tolower(ch);
         } 
