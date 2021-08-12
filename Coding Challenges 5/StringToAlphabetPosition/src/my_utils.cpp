@@ -17,4 +17,12 @@ namespace my_utils
 
         return modifiedString;
     }
+
+    void to_lowercase(std::string& strToModify)
+    {
+        for (char& ch : strToModify)
+        {
+            ch = std::tolower(ch);
+        } 
+    }
 }
