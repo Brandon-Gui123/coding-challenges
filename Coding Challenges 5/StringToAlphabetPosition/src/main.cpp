@@ -37,7 +37,7 @@ int main()
         alphabetPositionings += std::to_string(letterPosition);
 
         // only add a space if the current letter isn't the last
-        if (letter != *lowercaseLetters.rend())
+        if (letter != *lowercaseLetters.rbegin())
         {
             alphabetPositionings.push_back(' ');
         }
