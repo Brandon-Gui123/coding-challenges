@@ -13,11 +13,7 @@ int main()
     std::string onlyLetters{ my_utils::remove_non_alpha(example) };
 
     // convert all uppercase characters to lowercase
-    std::string lowercaseLetters{};
-    for (char letter : onlyLetters)
-    {
-        lowercaseLetters.push_back(std::tolower(letter));
-    }
+    my_utils::to_lowercase(onlyLetters);
 
     // each element in the string is a character
     // we can use the ASCII table since each character
@@ -26,13 +22,13 @@ int main()
     // from the character to get a number corresponding
     // to the letter in the alphabet
     std::string alphabetPositionings{};
-    for (char letter : lowercaseLetters)
+    for (char letter : onlyLetters)
     {
         int letterPosition{ letter - '`' };
         alphabetPositionings += std::to_string(letterPosition);
 
         // only add a space if the current letter isn't the last
-        if (letter != *lowercaseLetters.rbegin())
+        if (letter != *onlyLetters.rbegin())
         {
             alphabetPositionings.push_back(' ');
         }
