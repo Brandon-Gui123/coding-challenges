@@ -24,7 +24,7 @@ int main()
     std::string alphabetPositionings{};
     for (char letter : onlyLetters)
     {
-        int letterPosition{ letter - '`' };
+        int letterPosition{ my_utils::get_letter_pos(letter) };
         alphabetPositionings += std::to_string(letterPosition);
 
         // only add a space if the current letter isn't the last
