@@ -25,4 +25,9 @@ namespace my_utils
             ch = std::tolower(ch);
         } 
     }
+
+    int get_letter_pos(char ch)
+    {
+        return ch - '`';
+    }
 }
