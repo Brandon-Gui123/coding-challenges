@@ -1,0 +1,2 @@
+# The 'out' folder should not be tracked as it contains the builds
+/out/
