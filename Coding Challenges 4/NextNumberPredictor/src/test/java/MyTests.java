@@ -3,15 +3,23 @@ import org.junit.jupiter.api.Test;
 
 public class MyTests
 {
+    // Test on number patterns where the same number just keeps getting added
     @Test
-    public void someTests()
+    public void testAdditionPattern()
     {
-        Assertions.assertEquals(10, 10);
+        int[] numberPattern = { 4, 8, 12, 16 };
+        int nextNumber = PatternFinder.findNextNumber(numberPattern);
+
+        Assertions.assertEquals(20, nextNumber);
     }
 
+    // Test on square number patterns (e.g. 1, 4, 9...)
     @Test
-    public void testThatFails()
+    public void testSquareNumbersPattern()
     {
-        Assertions.assertEquals(1, 2);
+        int[] numberPattern = { 1, 4, 9, 16 };
+        int nextNumber = PatternFinder.findNextNumber(numberPattern);
+
+        Assertions.assertEquals(25, nextNumber);
     }
 }
