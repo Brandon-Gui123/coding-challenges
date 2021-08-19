@@ -70,4 +70,11 @@ public class Program
             }
         }
     }
+
+    public static String sortString(String str)
+    {
+        char[] charArr = str.toCharArray();
+        sortCharacters(charArr);
+        return new String(charArr);
+    }
 }
