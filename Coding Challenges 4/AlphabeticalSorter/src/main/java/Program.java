@@ -51,4 +51,23 @@ public class Program
 
         return true;
     }
+
+    public static void sortCharacters(char[] charArr)
+    {
+        // we'll use bubble sort to sort the characters in terms of order on the ASCII
+        while (!isSorted(charArr))
+        {
+            for (int i = 0; i < charArr.length - 1; i++)
+            {
+                // is the current char more than the char ahead?
+                if (Character.compare(charArr[i], charArr[i + 1]) > 0)
+                {
+                    // the current char needs to be swapped with the char ahead
+                    char currentCopy = charArr[i];
+                    charArr[i] = charArr[i + 1];
+                    charArr[i + 1] = currentCopy;
+                }
+            }
+        }
+    }
 }
