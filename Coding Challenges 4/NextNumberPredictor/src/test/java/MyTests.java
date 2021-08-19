@@ -12,4 +12,14 @@ public class MyTests
 
         Assertions.assertEquals(20, nextNumber);
     }
+
+    // Test on square number patterns (e.g. 1, 4, 9...)
+    @Test
+    public void testSquareNumbersPattern()
+    {
+        int[] numberPattern = { 1, 4, 9, 16 };
+        int nextNumber = PatternFinder.findNextNumber(numberPattern);
+
+        Assertions.assertEquals(25, nextNumber);
+    }
 }
