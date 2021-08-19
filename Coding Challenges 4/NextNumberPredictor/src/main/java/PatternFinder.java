@@ -17,7 +17,7 @@ public class PatternFinder
             // if not, then this must be another pattern
             if (numberPattern[i] - numberPattern[i - 1] != difference)
             {
-                System.out.println("This is not an addition number pattern!");
+                //System.out.println("This is not an addition number pattern!");
                 isAdditionNumberPattern = false;
                 break;
             }
@@ -44,7 +44,7 @@ public class PatternFinder
             // inconsistent power
             if (pow != power)
             {
-                System.out.println("Inconsistent power!");
+                //System.out.println("Inconsistent power!");
                 break;
             }
         }
