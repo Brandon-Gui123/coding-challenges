@@ -1,0 +1,4 @@
+# Files and directories to be ignored by Git
+
+# The compiled project binary
+out/
