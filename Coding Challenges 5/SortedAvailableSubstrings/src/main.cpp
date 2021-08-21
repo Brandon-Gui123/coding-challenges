@@ -70,10 +70,6 @@ int main()
         }
     }
 
-    // inputs
-    std::array<std::string, 3> substrInputs{ "strong", "live", "arp" };
-    std::array<std::string, 5> strInputs{ "lively", "alive", "harp", "sharp", "armstrong" };
-    
     // first, we have to find if a specific substring in 'substrInputs'
     // exists in any one of the strings in 'strInputs'
     // this can probably be done using 'std::string.find()'
