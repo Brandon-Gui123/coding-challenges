@@ -42,6 +42,34 @@ int main()
         }
     }
 
+    // create another vector to hold strings given by the user
+    std::vector<std::string> userStringInputs{};
+
+    while (true)
+    {
+        std::cout << "Enter a string (input nothing to end): ";
+        std::string strInput;
+        std::getline(std::cin, strInput, '\n');
+
+        if (strInput == "")
+        {
+            std::cout << "End.\n";
+            break;
+        }
+        else
+        {
+            if (std::find(userStringInputs.begin(), userStringInputs.end(), strInput) != userStringInputs.end())
+            {
+                std::cout << '"' << strInput << "\" already added! Try again.\n";
+            }
+            else
+            {
+                userStringInputs.push_back(strInput);
+                std::cout << "Added \"" << strInput << "\"\n";
+            }
+        }
+    }
+
     // inputs
     std::array<std::string, 3> substrInputs{ "strong", "live", "arp" };
     std::array<std::string, 5> strInputs{ "lively", "alive", "harp", "sharp", "armstrong" };
