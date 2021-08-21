@@ -84,10 +84,10 @@ int main()
     std::vector<std::string> presentSubstrings{};
 
     // iterate through each substring
-    for (const std::string& substr : substrInputs)
+    for (const std::string& substr : userSubstrInputs)
     {
         // and then iterate through each string
-        for (const std::string& inputStr : strInputs)
+        for (const std::string& inputStr : userStringInputs)
         {
             // check if the substring exists in the
             // input string
