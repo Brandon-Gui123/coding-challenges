@@ -6,6 +6,42 @@
 
 int main()
 {
+    // create a vector to hold substrings given by the user
+    std::vector<std::string> userSubstrInputs{};
+    
+    // infinite loop
+    while (true)
+    {
+        // ask the user for a string
+        std::cout << "Enter a substring (input nothing to end): ";
+        std::string strInput;
+
+        // allows reading empty strings, which means the user can
+        // simply hit "Enter" w/o giving input and we can read that
+        // to end the input
+        std::getline(std::cin, strInput, '\n');
+        
+        // if the string is empty, exit out of the loop
+        if (strInput == "")
+        {
+            std::cout << "End.\n";
+            break;
+        }
+        
+        // check if the string exists
+        if (std::find(userSubstrInputs.begin(), userSubstrInputs.end(), strInput) != userSubstrInputs.end())
+        {
+            // if the string exists, deny input and let the user try again
+            std::cout << '"' << strInput << "\" already added! Try again.\n";   
+        }
+        else
+        {
+            // else, add the string to the vector and inform the user
+            userSubstrInputs.push_back(strInput);
+            std::cout << "Added \"" << strInput << "\"\n";
+        }
+    }
+
     // inputs
     std::array<std::string, 3> substrInputs{ "strong", "live", "arp" };
     std::array<std::string, 5> strInputs{ "lively", "alive", "harp", "sharp", "armstrong" };
