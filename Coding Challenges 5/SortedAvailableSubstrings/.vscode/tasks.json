@@ -24,7 +24,29 @@
                 "src/*.cpp",
                 "-o",
                 "out/${workspaceFolderBasename}"
+            ]
+        },
+        {
+            "type": "process",
+            "label": "run built binary",
+            "problemMatcher": "$gcc",
+            "group": "none",
+            "detail": "run built binary in out/ directory",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": "./out/${workspaceFolderBasename}"
+        },
+        {
+            "type": "shell",
+            "label": "build and run",
+            "detail": "build and run the workspace",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "g++: build workspace directory",
+                "run built binary"
             ],
+            "problemMatcher": []
         }
     ]
 }
