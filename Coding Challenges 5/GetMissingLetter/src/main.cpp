@@ -11,14 +11,7 @@ int main()
 
     char missingChar{ my_functions::findMissingLetter(exampleInput) };
 
-    if (missingChar == 'e')
-    {
-        std::cout << "Success!\n";
-    }
-    else
-    {
-        std::cout << "Failed!\n";
-    }
+    std::cout << "The missing char is " << missingChar << '\n';
 
     return 0;
 }
