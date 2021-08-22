@@ -28,7 +28,7 @@ namespace my_functions
         // create a 'for' loop, starting at vector's 2nd element, all the way to the end
         // this is because there's no point comparing first element with our variable above,
         // which is also the value of the first element. The equality will always be true.
-        for (auto charIt{consecutiveLetters.begin() + 1}; charIt != consecutiveLetters.end(); ++charIt)
+        for (auto charIt{ ++consecutiveLetters.begin() }; charIt != consecutiveLetters.end(); ++charIt)
         {
             // increment the variable declared above by 1 (++)
             ++expectedLetter;
