@@ -13,7 +13,9 @@ namespace my_functions
         
         // a size of at least 2 is required so that the 'for' loop
         // below will have a second element to access
-        if (consecutiveLetters.size() < 2)
+        constexpr int minVectorSize{ 2 };
+        
+        if (consecutiveLetters.size() < minVectorSize)
         {
             return sentinelValue;
         }
