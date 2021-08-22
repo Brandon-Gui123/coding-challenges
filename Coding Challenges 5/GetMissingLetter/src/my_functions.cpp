@@ -7,11 +7,15 @@ namespace my_functions
         // requirements: consecutive (increasing letters)
         // this means the vector is expected to have already been sorted
 
+        // value returned in invalid situations
+        // e.g. vector too small, no missing letters found
+        constexpr char sentinelValue{ '0' };
+        
         // a size of at least 2 is required so that the 'for' loop
         // below will have a second element to access
         if (consecutiveLetters.size() < 2)
         {
-            return '0';
+            return sentinelValue;
         }
 
         // fastest solution I can think of: rely on the ASCII table
@@ -38,6 +42,6 @@ namespace my_functions
         // we need a sentinel to indicate that there are no missing letters
         // maybe we can return '0' for now (it isn't even a letter so we should be good)
 
-        return '0';
+        return sentinelValue;
     }
 }
