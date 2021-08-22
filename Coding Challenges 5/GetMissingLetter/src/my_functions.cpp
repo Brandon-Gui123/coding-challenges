@@ -10,11 +10,11 @@ namespace my_functions
         // value returned in invalid situations
         // e.g. vector too small, no missing letters found
         constexpr char sentinelValue{ '0' };
-        
+
         // a size of at least 2 is required so that the 'for' loop
         // below will have a second element to access
         constexpr int minVectorSize{ 2 };
-        
+
         if (consecutiveLetters.size() < minVectorSize)
         {
             return sentinelValue;
@@ -24,7 +24,7 @@ namespace my_functions
 
         // initialize a variable to hold the value of the first element in the vector
         char expectedLetter{ consecutiveLetters.front() };
-        
+
         // create a 'for' loop, starting at vector's 2nd element, all the way to the end
         // this is because there's no point comparing first element with our variable above,
         // which is also the value of the first element. The equality will always be true.
@@ -32,7 +32,7 @@ namespace my_functions
         {
             // increment the variable declared above by 1 (++)
             ++expectedLetter;
-            
+
             // compare equality of variable and element at index i
             if (expectedLetter != *charIt)
             {
@@ -40,7 +40,7 @@ namespace my_functions
                 return expectedLetter;
             }
         }
-        
+
         // we need a sentinel to indicate that there are no missing letters
         // maybe we can return '0' for now (it isn't even a letter so we should be good)
 
