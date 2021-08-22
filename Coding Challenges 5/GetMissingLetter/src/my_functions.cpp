@@ -7,6 +7,13 @@ namespace my_functions
         // requirements: consecutive (increasing letters)
         // this means the vector is expected to have already been sorted
 
+        // a size of at least 2 is required so that the 'for' loop
+        // below will have a second element to access
+        if (consecutiveLetters.size() < 2)
+        {
+            return '0';
+        }
+
         // fastest solution I can think of: rely on the ASCII table
 
         // initialize a variable to hold the value of the first element in the vector
