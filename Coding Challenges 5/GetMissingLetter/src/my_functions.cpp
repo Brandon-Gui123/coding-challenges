@@ -13,6 +13,8 @@ namespace my_functions
         char expectedLetter{ consecutiveLetters[0] };
         
         // create a 'for' loop, starting at vector's 2nd element, all the way to the end
+        // this is because there's no point comparing first element with our variable above,
+        // which is also the value of the first element. The equality will always be true.
         for (int i{ 1 }; i < consecutiveLetters.size(); ++i)
         {
             // increment the variable declared above by 1 (++)
