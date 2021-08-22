@@ -17,18 +17,18 @@ namespace my_functions
         // fastest solution I can think of: rely on the ASCII table
 
         // initialize a variable to hold the value of the first element in the vector
-        char expectedLetter{ consecutiveLetters[0] };
+        char expectedLetter{ consecutiveLetters.front() };
         
         // create a 'for' loop, starting at vector's 2nd element, all the way to the end
         // this is because there's no point comparing first element with our variable above,
         // which is also the value of the first element. The equality will always be true.
-        for (int i{ 1 }; i < consecutiveLetters.size(); ++i)
+        for (auto charIt{consecutiveLetters.begin() + 1}; charIt != consecutiveLetters.end(); ++charIt)
         {
             // increment the variable declared above by 1 (++)
             ++expectedLetter;
             
             // compare equality of variable and element at index i
-            if (expectedLetter != consecutiveLetters[i])
+            if (expectedLetter != *charIt)
             {
                 // if different, return the expected letter
                 return expectedLetter;
