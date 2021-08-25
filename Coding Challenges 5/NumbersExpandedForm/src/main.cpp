@@ -1,3 +1,4 @@
+#include "my_constants.h"
 #include "my_functions.h"
 
 #include <iostream>
@@ -29,7 +30,7 @@ int main()
     bool shouldFillDecimalDigits{ false };
     for (char digit : sampleInputAsString)
     {
-        if (digit == '.')
+        if (digit == my_constants::dotChar)
         {
             shouldFillDecimalDigits = true;
 
@@ -52,7 +53,7 @@ int main()
     // to easily deal with this, we can use 'rbegin()' and 'rend()' to instead start
     // from the last element, which is the digit with the lowest place value
     // then as we iterate, we add a '0' to the end of the "10"
-    std::string multiplyValue{ "10" };
+    std::string multiplyValue{ my_constants::tenString };
     std::vector<std::string> expandedForms{};
     for (auto intCharIt{ integralDigits.rbegin() }; intCharIt != integralDigits.rend(); ++intCharIt)
     {
@@ -61,7 +62,7 @@ int main()
         if (intCharIt == integralDigits.rbegin())
         {
             // zeroes are not to be included in the expanded form
-            if (*intCharIt != '0')
+            if (*intCharIt != my_constants::zeroChar)
             {
                 expandedForms.push_back(std::string{ 1, *intCharIt });
             }
@@ -72,11 +73,13 @@ int main()
         }
 
         // zeroes are not to be included in the expanded form
-        if (*intCharIt != '0')
+        if (*intCharIt != my_constants::zeroChar)
         {
             // expanded form consists of the digit, a multiplication symbol, a multiplier value and whitespaces
             std::string expandedForm{ 1, *intCharIt };
-            expandedForm += " * ";
+            expandedForm += ' ';
+            expandedForm += my_constants::multiplyChar;
+            expandedForm += ' ';
             expandedForm += multiplyValue;
 
             // insert at the beginning of the vector so printing vector contents becomes easier
@@ -84,29 +87,31 @@ int main()
         }
 
         // for the next digit
-        multiplyValue += '0';
+        multiplyValue += my_constants::zeroChar;
     }
 
     // for decimal digits, the process is the same as above
     // but we can start at the first element instead of the last
     // since the first element's place value is the highest among
     // the other decimal digits (we start with n / 10, then n / 100 etc.)
-    std::string divideValue{ "10" };
+    std::string divideValue{ my_constants::tenString };
     for (auto decCharIt{ decimalDigits.begin() }; decCharIt != decimalDigits.end(); ++decCharIt)
     {
         // zeroes not to be included
-        if (*decCharIt != '0')
+        if (*decCharIt != my_constants::zeroChar)
         {
             // expanded form consists of the digit, a division symbol, the divisor and whitespaces
             std::string expandedForm{ 1, *decCharIt };
-            expandedForm += " / ";
+            expandedForm += ' ';
+            expandedForm += my_constants::divideChar;
+            expandedForm += ' ';
             expandedForm += divideValue;
 
             expandedForms.push_back(expandedForm);
         }
 
         // for the next digit
-        divideValue += '0';
+        divideValue += my_constants::zeroChar;
     }
 
     std::cout << "Expanded forms:\n";
@@ -125,7 +130,10 @@ int main()
         }
         else
         {
-            fullExpandedForm += str + " + ";
+            fullExpandedForm += str;
+            fullExpandedForm += ' ';
+            fullExpandedForm += my_constants::plusChar;
+            fullExpandedForm += ' ';
         }
     }
 
