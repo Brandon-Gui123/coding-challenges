@@ -16,9 +16,11 @@ int main()
     // may cause a ton of decimals to show up
     // so to prevent floating point errors, we should convert the input to a string
 
-    double sampleInput{ 101.24 };
+    std::cout << "Enter a number (decimals allowed): ";
+    double userInput;
+    std::cin >> userInput;
 
-    std::string sampleInputAsString{ std::to_string(sampleInput) };
+    std::string sampleInputAsString{ std::to_string(userInput) };
 
     // to separate the integral and decimal parts, we can loop through all the characters
     // in the string and first store it in a vector for integral digits
@@ -114,10 +116,6 @@ int main()
         divideValue += my_constants::zeroChar;
     }
 
-    std::cout << "Expanded forms:\n";
-    my_functions::printVectorToStdOut(expandedForms);
-    std::cout << '\n';
-
     // now we need to concatenate all of them and
     // add in '+' as necessary
     std::string fullExpandedForm{};
@@ -137,7 +135,7 @@ int main()
         }
     }
 
-    std::cout << sampleInput << '\n';
+    std::cout << userInput << '\n';
     std::cout << fullExpandedForm << '\n';
     
     return 0;
