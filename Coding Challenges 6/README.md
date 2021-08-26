@@ -1,4 +1,4 @@
-# Coding Challenges 5
+# Coding Challenges 6
 
 This folder contains my solution to all challenges in [this Instagram post](https://www.instagram.com/p/B1gg-J3gCKM/).
 
