@@ -54,6 +54,15 @@ int getNumberOfTrailingZeroesInFactorialOf(int factorialOf)
 
 int main()
 {
-    std::cout << "Hello there, world!\n";
+    // we'll compute the number of trailing zeroes in n! where n will range from 0 to 100
+    std::cout << "Number of trailing zeroes in N!\n";
+    
+    for (int i{ 0 }; i <= 100; ++i)
+    {
+        std::cout << i << "!\t->\t";
+        std::cout << getNumberOfTrailingZeroesInFactorialOf(i) << '\n';
+    }
+    std::cout << '\n';
+
     return 0;
 }
