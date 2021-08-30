@@ -1,3 +1,4 @@
+#include <cassert>      // for assert macro
 #include <iostream>
 
 int getNumberOfTrailingZeroesInFactorialOf(int factorialOf)
@@ -39,6 +40,15 @@ int getNumberOfTrailingZeroesInFactorialOf(int factorialOf)
      * quotient of n / 5 (integer division, so decimals are truncated),
      * where n is the value in n!.
      */
+
+    // could probably use an exception instead of an assert macro
+    // but I haven't fully learn exceptions so once I learn them,
+    // I'll come back to add them here
+    // I use && and a string to make use of the assert being printed to
+    // the console if it fails. The string will be helpful to give a reason
+    // to why the assertion may have failed.
+    assert(factorialOf >= 0 && "Only zero and positive numbers are accepted");
+
     return factorialOf / 5;
 }
 
