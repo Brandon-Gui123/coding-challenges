@@ -55,7 +55,7 @@ std::size_t leftRightSumIndexEquals(const std::vector<int>& integerVector)
 }
 
 template<typename T, std::size_t length>
-std::size_t leftRightSumIndexEquals(const std::array<T, length>& integerArray)
+std::size_t leftRightSumIndexEquals(const std::array<T, length>& arr)
 {
     constexpr std::size_t noMatchValue{ std::numeric_limits<std::size_t>::max() };
 
@@ -73,12 +73,12 @@ std::size_t leftRightSumIndexEquals(const std::array<T, length>& integerArray)
         return noMatchValue;
     }
 
-    int leftSum{ integerArray[0] };
+    int leftSum{ arr[0] };
     int rightSum{ 0 };
 
     for (std::size_t i{ 2 }; i < length; ++i)
     {
-        rightSum += integerArray[i];
+        rightSum += arr[i];
     }
 
     // sum of elements before the third element and
@@ -93,8 +93,8 @@ std::size_t leftRightSumIndexEquals(const std::array<T, length>& integerArray)
     // elements of the second element
     for (std::size_t n{ 2 }; n < length - 1; ++n)
     {
-        leftSum += integerArray[n - 1];
-        rightSum -= integerArray[n + 1];
+        leftSum += arr[n - 1];
+        rightSum -= arr[n + 1];
 
         if (leftSum == rightSum)
         {
