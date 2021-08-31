@@ -5,6 +5,8 @@
 
 std::size_t leftRightSumIndexEquals(const std::vector<int>& integerVector)
 {
+    constexpr std::size_t noMatchValue{ std::numeric_limits<std::size_t>::max() };
+    
     // we need at least 3 elements so we got a left, middle and right
     // else, finding the sum of left and right between middle 
     // will not make sense
@@ -16,7 +18,7 @@ std::size_t leftRightSumIndexEquals(const std::vector<int>& integerVector)
         // will never be at that value (since there's no element after that!)
         // It is also slightly better than 0 since such a value is probably
         // unique
-        return std::numeric_limits<std::size_t>::max();
+        return noMatchValue;
     }
     
     int leftSum{ integerVector[0] };
@@ -48,7 +50,7 @@ std::size_t leftRightSumIndexEquals(const std::vector<int>& integerVector)
         }
     }
 
-    return std::numeric_limits<std::size_t>::max();
+    return noMatchValue;
 }
 
 int main()
