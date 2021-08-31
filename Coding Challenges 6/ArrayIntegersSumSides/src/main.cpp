@@ -1,3 +1,4 @@
+#include <cstddef>      // for std::size_t
 #include <vector>
 #include <iostream>
 
@@ -14,7 +15,7 @@ int leftRightSumIndexEquals(const std::vector<int>& integerVector)
     int leftSum{ integerVector[0] };
     int rightSum{ 0 };
 
-    for (int i{ 2 }; i < integerVector.size(); ++i)
+    for (std::size_t i{ 2 }; i < integerVector.size(); ++i)
     {
         rightSum += integerVector[i];
     }
@@ -29,7 +30,7 @@ int leftRightSumIndexEquals(const std::vector<int>& integerVector)
     // start at the third element because we've
     // already calculated the sum of the left and right
     // elements of the second element
-    for (int n{ 2 }; n < integerVector.size() - 1; ++n)
+    for (std::size_t n{ 2 }; n < integerVector.size() - 1; ++n)
     {
         leftSum += integerVector[n - 1];
         rightSum -= integerVector[n + 1];
