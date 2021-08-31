@@ -40,6 +40,17 @@ int leftRightSumIndexEquals(const std::vector<int>& integerVector)
 
 int main()
 {
-    std::cout << "Hello there, world!\n";
+    std::vector integerVector{ 1, 2, 3, 4, 3, 2, 1 };
+    std::cout << leftRightSumIndexEquals(integerVector) << '\n';
+
+    std::vector anotherOne{ 1, 100, 50, -51, 1, 1 };
+    std::cout << leftRightSumIndexEquals(anotherOne) << '\n';
+
+    std::vector myOwnVector{ 100, 100, 100, 100, 100 };
+    std::cout << leftRightSumIndexEquals(myOwnVector) << '\n';
+
+    std::vector noMatch{ 1, 2, 3, 4, 5 };
+    std::cout << leftRightSumIndexEquals(noMatch) << '\n';
+
     return 0;
 }
