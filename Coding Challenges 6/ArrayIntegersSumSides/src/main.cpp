@@ -3,6 +3,14 @@
 
 int leftRightSumIndexEquals(const std::vector<int>& integerVector)
 {
+    // we need at least 3 elements so we got a left, middle and right
+    // else, finding the sum of left and right between middle 
+    // will not make sense
+    if (integerVector.size() < 3)
+    {
+        return -1;
+    }
+    
     int leftSum{ integerVector[0] };
     int rightSum{ 0 };
 
