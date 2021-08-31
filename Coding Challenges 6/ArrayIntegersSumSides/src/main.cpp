@@ -1,3 +1,4 @@
+#include <array>        // for std::array
 #include <cstddef>      // for std::size_t
 #include <limits>       // for std::numeric_limits
 #include <vector>
@@ -43,6 +44,57 @@ std::size_t leftRightSumIndexEquals(const std::vector<int>& integerVector)
     {
         leftSum += integerVector[n - 1];
         rightSum -= integerVector[n + 1];
+
+        if (leftSum == rightSum)
+        {
+            return n;
+        }
+    }
+
+    return noMatchValue;
+}
+
+template<typename T, std::size_t length>
+std::size_t leftRightSumIndexEquals(const std::array<T, length>& integerArray)
+{
+    constexpr std::size_t noMatchValue{ std::numeric_limits<std::size_t>::max() };
+
+    // we need at least 3 elements so we got a left, middle and right
+    // else, finding the sum of left and right between middle 
+    // will not make sense
+    if (length < 3)
+    {
+        // I picked the max value of std::size_t as the return value for arrays
+        // with insufficient length
+        // or when no matches are found because the appropriate index values
+        // will never be at that value (since there's no element after that!)
+        // It is also slightly better than 0 since such a value is probably
+        // unique
+        return noMatchValue;
+    }
+
+    int leftSum{ integerArray[0] };
+    int rightSum{ 0 };
+
+    for (std::size_t i{ 2 }; i < length; ++i)
+    {
+        rightSum += integerArray[i];
+    }
+
+    // sum of elements before the third element and
+    // the sum of elements after the third element are equal
+    if (leftSum == rightSum)
+    {
+        return 1;
+    }
+
+    // start at the third element because we've
+    // already calculated the sum of the left and right
+    // elements of the second element
+    for (std::size_t n{ 2 }; n < length - 1; ++n)
+    {
+        leftSum += integerArray[n - 1];
+        rightSum -= integerArray[n + 1];
 
         if (leftSum == rightSum)
         {
