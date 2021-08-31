@@ -1,4 +1,5 @@
 #include <cstddef>      // for std::size_t
+#include <limits>       // for std::numeric_limits
 #include <vector>
 #include <iostream>
 
@@ -9,7 +10,13 @@ std::size_t leftRightSumIndexEquals(const std::vector<int>& integerVector)
     // will not make sense
     if (integerVector.size() < 3)
     {
-        return -1;
+        // I picked the max value of std::size_t as the return value for arrays
+        // with insufficient length
+        // or when no matches are found because the appropriate index values
+        // will never be at that value (since there's no element after that!)
+        // It is also slightly better than 0 since such a value is probably
+        // unique
+        return std::numeric_limits<std::size_t>::max();
     }
     
     int leftSum{ integerVector[0] };
@@ -41,10 +48,7 @@ std::size_t leftRightSumIndexEquals(const std::vector<int>& integerVector)
         }
     }
 
-    // this value will most likely not be used in array indexes
-    // so we'll use this return value to indicate that we can't
-    // find anything
-    return -1;
+    return std::numeric_limits<std::size_t>::max();
 }
 
 int main()
