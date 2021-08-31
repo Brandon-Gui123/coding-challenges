@@ -2,7 +2,7 @@
 #include <vector>
 #include <iostream>
 
-int leftRightSumIndexEquals(const std::vector<int>& integerVector)
+std::size_t leftRightSumIndexEquals(const std::vector<int>& integerVector)
 {
     // we need at least 3 elements so we got a left, middle and right
     // else, finding the sum of left and right between middle 
