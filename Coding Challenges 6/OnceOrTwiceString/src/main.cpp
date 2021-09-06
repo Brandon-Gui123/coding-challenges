@@ -19,14 +19,7 @@ std::string replaceOnceTwice(const std::string& input)
     {
         int numOccurrences{ charactersTable[ch] };
 
-        if (numOccurrences == 1)
-        {
-            ch = '(';
-        }
-        else
-        {
-            ch = ')';
-        }
+        ch = (numOccurrences == 1) ? '(' : ')';
     }
 
     return inputCopy;
