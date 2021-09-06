@@ -1,9 +1,12 @@
+#include <cassert>      // for assert() macro
 #include <functional>   // for std::greater
 #include <iostream>
 #include <vector>       // for std::vector
 
 int asDescending(int number)
 {
+    assert(number >= 0 && "The argument cannot be less than 0");
+    
     std::vector<int> digits{};
     int numberCopy{ number };
     do
