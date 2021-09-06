@@ -16,17 +16,8 @@ int main()
     // 2. Iterate through each character in a string
     for (const char ch : inputString)
     {
-        // 3. Check if that char exists in the map
-        if (charactersTable.contains(ch))
-        {
-            // - If it exists, access the value via the char and increment the value by 1
-            charactersTable[ch] += 1;
-        }
-        else
-        {
-            // - If not, add a new key-value pair to the map, where key = char, value = 1
-            charactersTable[ch] = 1;
-        }
+        // note that if the key 'ch' doesn't exist, it will be created
+        charactersTable[ch] += 1;
     }
 
     // 4. Go through each character in the string again. This time, we want to modify
