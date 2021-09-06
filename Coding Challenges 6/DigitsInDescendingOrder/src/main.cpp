@@ -27,12 +27,8 @@ int asDescending(int number)
 
 int main()
 {
-    // The easiest would be to use a vector to store the digits of a number,
-    // then sort those digits in descending order.
-    // Then combine all those digits together and return the result as an integer.
-
-    int input{ 21445 };
-    int result{ asDescending(input) };
-    std::cout << input << "\t==>\t" << result << '\n';
+    std::cout << 21445 << "\t==>\t" << asDescending(21445) << '\n';
+    std::cout << 145263 << "\t==>\t" << asDescending(145263) << '\n';
+    
     return 0;
 }
