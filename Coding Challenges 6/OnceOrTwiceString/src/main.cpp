@@ -2,27 +2,20 @@
 #include <string>               // for std::string
 #include <unordered_map>        // for std::unordered_map
 
-int main()
+std::string replaceOnceTwice(const std::string& input)
 {
-    // Solution that came to my mind in the shortest amount of time:
-
-    std::string inputString{ "recede" };
-    
-    // 1. Use an unordered map, storing char as a key and int as the value
-    //    - key represents the char in the string
-    //    - int represents the number of times char appeared in the string
     std::unordered_map<char, int> charactersTable{};
 
-    // 2. Iterate through each character in a string
-    for (const char ch : inputString)
+    for (const char ch : input)
     {
         // note that if the key 'ch' doesn't exist, it will be created
         charactersTable[ch] += 1;
     }
 
-    // 4. Go through each character in the string again. This time, we want to modify
-    //    the characters.
-    for (char& ch : inputString)
+    // make a copy of the input so we don't modify the original
+    std::string inputCopy{ input };
+    
+    for (char& ch : inputCopy)
     {
         // 5. Use the character as a key for the map to get the value
         int numOccurrences{ charactersTable[ch] };
@@ -40,7 +33,12 @@ int main()
         }
     }
 
-    std::cout << inputString << '\n';
+    return inputCopy;
+}
+
+int main()
+{
     
+
     return 0;
 }
