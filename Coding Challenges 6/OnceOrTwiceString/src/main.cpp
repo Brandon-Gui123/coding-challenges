@@ -17,18 +17,14 @@ std::string replaceOnceTwice(const std::string& input)
     
     for (char& ch : inputCopy)
     {
-        // 5. Use the character as a key for the map to get the value
         int numOccurrences{ charactersTable[ch] };
 
-        // 6. Check if the value is 1
         if (numOccurrences == 1)
         {
-            // - If the value is 1, change current char to '('
             ch = '(';
         }
         else
         {
-            // - Else, change current char to ')'
             ch = ')';
         }
     }
