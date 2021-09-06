@@ -38,7 +38,8 @@ std::string replaceOnceTwice(const std::string& input)
 
 int main()
 {
-    
+    std::cout << "din\t=>\t" << replaceOnceTwice("din") << '\n';
+    std::cout << "recede\t=>\t" << replaceOnceTwice("recede") << '\n';
 
     return 0;
 }
