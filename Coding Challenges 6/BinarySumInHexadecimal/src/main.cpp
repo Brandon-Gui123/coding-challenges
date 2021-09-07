@@ -27,6 +27,28 @@ SumBooleansResult sumBooleans(bool first, bool second)
     }
 }
 
+// Takes two vectors and adds zeroes to the shorter vector until
+// the size is equal to the other.
+void makeEqualSize(std::vector<bool>& first, std::vector<bool>& second)
+{
+    if (first.size() == second.size())
+    {
+        // no need to do anything
+        return;
+    }
+    else
+    {
+        if (first.size() < second.size())
+        {
+            first.insert(first.begin(), second.size() - first.size(), false);
+        }
+        else
+        {
+            second.insert(second.begin(), first.size() - second.size(), false);
+        }
+    }
+}
+
 int main()
 {
     std::cout << "Hello there, world!\n";
