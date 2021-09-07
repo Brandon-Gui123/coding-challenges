@@ -4,6 +4,11 @@
 
 std::string expandInteger(int input)
 {
+    if (input == 0)
+    {
+        return "0";
+    }
+
     std::vector<int> digitValues{};
 
     int inputCopy{ input };
