@@ -1,3 +1,4 @@
+#include <cassert>      // for assert macro
 #include <iostream>     // for std::cout
 #include <vector>       // for std::vector
 
@@ -105,6 +106,29 @@ std::vector<bool> sum(const std::vector<bool>& first, const std::vector<bool>& s
     }
 
     return firstCopy;
+}
+
+std::vector<bool> stringToBits(const std::string& str)
+{
+    std::vector<bool> bits{};
+
+    for (const auto ch : str)
+    {
+        if (ch == '0')
+        {
+            bits.push_back(false);
+        }
+        else if (ch == '1')
+        {
+            bits.push_back(true);
+        }
+        else
+        {
+            assert(false && "The supplied string contains other chars that aren't 1 and 0");
+        }
+    }
+
+    return bits;
 }
 
 int main()
