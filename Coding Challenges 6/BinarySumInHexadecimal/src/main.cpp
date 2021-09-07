@@ -169,6 +169,28 @@ std::vector<std::string> splitIntoFourBits(const std::vector<bool>& bits)
     return stringsOfFour;
 }
 
+char fourBitsStringToHexadecimal(const std::string& fourBitsString)
+{
+    // the easiest would be to list out all 16 combinations
+    if (fourBitsString == "0000") return '0';
+    else if (fourBitsString == "0001") return '1';
+    else if (fourBitsString == "0010") return '2';
+    else if (fourBitsString == "0011") return '3';
+    else if (fourBitsString == "0100") return '4';
+    else if (fourBitsString == "0101") return '5';
+    else if (fourBitsString == "0110") return '6';
+    else if (fourBitsString == "0111") return '7';
+    else if (fourBitsString == "1000") return '8';
+    else if (fourBitsString == "1001") return '9';
+    else if (fourBitsString == "1010") return 'A';
+    else if (fourBitsString == "1011") return 'B';
+    else if (fourBitsString == "1100") return 'C';
+    else if (fourBitsString == "1101") return 'D';
+    else if (fourBitsString == "1110") return 'E';
+    else if (fourBitsString == "1111") return 'F';
+    else assert(false && "Unknown string!");
+}
+
 int main()
 {
     std::cout << "Hello there, world!\n";
