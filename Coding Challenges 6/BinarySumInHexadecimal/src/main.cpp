@@ -131,6 +131,13 @@ std::vector<bool> stringToBits(const std::string& str)
     return bits;
 }
 
+// Takes a Boolean vector and adds zeroes to the left of the vector until
+// the size of the vector is a factor of 4
+void makeSizeFactorOf4(std::vector<bool>& bits)
+{
+    bits.insert(bits.begin(), 4 - (bits.size() % 4), false);
+}
+
 int main()
 {
     std::cout << "Hello there, world!\n";
