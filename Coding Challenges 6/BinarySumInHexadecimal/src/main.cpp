@@ -191,6 +191,19 @@ char fourBitsStringToHexadecimal(const std::string& fourBitsString)
     else assert(false && "Unknown string!");
 }
 
+std::string bitsToHexadecimalString(const std::vector<bool>& bits)
+{
+    std::vector<std::string> splitFourBits{ splitIntoFourBits(bits) };
+
+    std::string hexadecimal{};
+    for (const std::string& str : splitFourBits)
+    {
+        hexadecimal.push_back(fourBitsStringToHexadecimal(str));
+    }
+
+    return hexadecimal;
+}
+
 int main()
 {
     std::cout << "Hello there, world!\n";
