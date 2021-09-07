@@ -11,7 +11,12 @@ std::string expandInteger(int input)
     do
     {
         int digit{ inputCopy % 10 };
-        digitValues.push_back(digit * multiplier);
+
+        // ignore zeroes
+        if (digit != 0)
+        {
+            digitValues.push_back(digit * multiplier);
+        }
 
         inputCopy /= 10;
         multiplier *= 10;
