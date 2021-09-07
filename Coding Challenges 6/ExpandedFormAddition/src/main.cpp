@@ -50,6 +50,9 @@ std::string expandInteger(int input)
 
 int main()
 {
-    
+    std::cout << 12 << "\t==>\t" << expandInteger(12) << '\n';
+    std::cout << 421 << "\t==>\t" << expandInteger(421) << '\n';
+    std::cout << 70304 << "\t==>\t" << expandInteger(70304) << '\n';
+
     return 0;
 }
