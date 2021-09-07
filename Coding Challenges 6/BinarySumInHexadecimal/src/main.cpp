@@ -205,7 +205,20 @@ std::string bitsToHexadecimalString(const std::vector<bool>& bits)
 }
 
 int main()
-{
-    std::cout << "Hello there, world!\n";
-    return 0;
+{   
+    std::string first{ "110" };
+    std::string second{ "101" };
+
+    std::vector<bool> firstSecondSum{ sum(stringToBits(first), stringToBits(second)) };
+    std::string firstSecondSumAsHex{ bitsToHexadecimalString(firstSecondSum) };
+
+    std::cout << '"' << first << "\", \"" << second << "\"\t==>\t\"" << firstSecondSumAsHex << "\"\n";
+
+    std::string third{ "1000" };
+    std::string fourth{ "1010" };
+
+    std::vector<bool> thirdFourthSum{ sum(stringToBits(third), stringToBits(fourth)) };
+    std::string thirdFourthSumAsHex{ bitsToHexadecimalString(thirdFourthSum) };
+
+    std::cout << '"' << third << "\", \"" << fourth << "\"\t==>\t\"" << thirdFourthSumAsHex << "\"\n";
 }
