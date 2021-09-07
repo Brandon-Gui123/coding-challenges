@@ -135,7 +135,13 @@ std::vector<bool> stringToBits(const std::string& str)
 // the size of the vector is a factor of 4
 void makeSizeFactorOf4(std::vector<bool>& bits)
 {
-    bits.insert(bits.begin(), 4 - (bits.size() % 4), false);
+    int remainder{ bits.size() % 4 };
+
+    // no need to add anything if the size is a factor of 0
+    if (remainder != 0)
+    {
+        bits.insert(bits.begin(), 4 - remainder, false);
+    }
 }
 
 int main()
