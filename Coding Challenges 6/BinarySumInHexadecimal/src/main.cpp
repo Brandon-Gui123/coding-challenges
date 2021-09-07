@@ -144,6 +144,31 @@ void makeSizeFactorOf4(std::vector<bool>& bits)
     }
 }
 
+std::vector<std::string> splitIntoFourBits(const std::vector<bool>& bits)
+{
+    // make a copy since we want to make sure the given vector has
+    // a size that is a factor of 4
+    std::vector<bool> bitsCopy{ bits };
+
+    makeSizeFactorOf4(bitsCopy);
+
+    std::vector<std::string> stringsOfFour{};
+    for (auto it{ bitsCopy.begin() }; it != bitsCopy.end();)
+    {
+        std::string fourBitsString{};
+
+        for (int i{ 0 }; i < 4; ++i)
+        {
+            fourBitsString.push_back((*it) ? '1' : '0');
+            ++it;
+        }
+
+        stringsOfFour.push_back(fourBitsString);
+    }
+
+    return stringsOfFour;
+}
+
 int main()
 {
     std::cout << "Hello there, world!\n";
