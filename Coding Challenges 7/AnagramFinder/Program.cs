@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -43,7 +43,11 @@ namespace AnagramFinder
             // after that index is at the first element in the list,
             // move the next index in the indices list up by 1
 
-            List<string> permutations = new();
+            // since permutations are meant to be unique, we could
+            // use a HashSet here.
+            // This will gives us O(1) time complexity when using the
+            // Contains() method
+            HashSet<string> permutations = new();
 
             while (true)
             {
