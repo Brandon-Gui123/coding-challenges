@@ -26,16 +26,16 @@ namespace AnagramFinder
 
         static void Main(string[] args)
         {
-            List<int> input = new() { 0, 2, 2, 2 };
+            string input = "baba";
 
             // the number of indices to create
             // depends on how many inputs we have
-            int[] indices = new int[input.Count];
+            int[] indices = new int[input.Length];
 
             for (int i = 0; i < indices.Length; i++)
             {
                 // make all indices point to the last element in the input list
-                indices[i] = input.Count - 1;
+                indices[i] = input.Length - 1;
             }
 
             // the first index in the indices list goes from last to first in the input list
@@ -69,7 +69,7 @@ namespace AnagramFinder
                 }
 
                 // next index?????? idk
-                Increment(indices, input.Count - 1);
+                Increment(indices, input.Length - 1);
 
                 if (indices.Any(index => index < 0))
                 {
