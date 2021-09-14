@@ -17,7 +17,7 @@ namespace AnagramFinder
             
             List<int> indexers = new(word.Length);
 
-            // makes all indexes point to the last
+            // makes all indexers point to the last
             // element in the word
             for (int i = 0; i < word.Length; i++)
             {
@@ -36,11 +36,11 @@ namespace AnagramFinder
             StringBuilder permutationBuilder = new(word.Length);
 
             // continue iterating if all of the
-            // indexes have valid index, meaning
+            // indexers have valid index, meaning
             // their values are non-negative
             while (indexers.All(index => index >= 0 && index < word.Length))
             {
-                // only build permutation if all of the indexes
+                // only build permutation if all of the indexers
                 // are distinct
                 if (indexers.Distinct().Count() == indexers.Count)
                 {
@@ -55,7 +55,7 @@ namespace AnagramFinder
                     permutationBuilder.Clear();
                 }
 
-                // advance indexes
+                // advance indexers
                 // the point is to have the last indexer to point
                 // to the previous character whilst the other indexers
                 // don't move. This will continue until the last indexer
@@ -80,7 +80,7 @@ namespace AnagramFinder
 
         private static void AdvanceIndexers(List<int> indexers, int wordCount)
         {
-            // this moves the last index to point at the
+            // this moves the last indexer to point at the
             // element before what it is pointing
             indexers[^1]--;
 
