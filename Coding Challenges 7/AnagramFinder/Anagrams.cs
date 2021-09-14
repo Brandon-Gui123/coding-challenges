@@ -8,6 +8,13 @@ namespace AnagramFinder
     {
         public static List<string> Get(string word)
         {
+            // cannot find anagrams if string is empty
+            // or null
+            if (string.IsNullOrEmpty(word))
+            {
+                return null;
+            }
+            
             List<int> indexers = new(word.Length);
 
             // makes all indexes point to the last
