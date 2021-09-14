@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -62,10 +62,10 @@ namespace AnagramFinder
                         permutation += input[indices[i]];
                     }
 
-                    if (!permutations.Contains(permutation))
-                    {
-                        permutations.Add(permutation);
-                    }
+                    // the Add() method will not add the permutation
+                    // if it already exists, so we don't have to check
+                    // beforehand since it already does the checking for us
+                    permutations.Add(permutation);
                 }
 
                 // next index?????? idk
