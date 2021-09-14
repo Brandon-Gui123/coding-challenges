@@ -13,6 +13,13 @@ namespace AnagramFinder
             Console.WriteLine($"anagrams(\"{input}\") =>");
 
             List<string> anagrams = Anagrams.Get(input);
+
+            if (anagrams == null)
+            {
+                Console.WriteLine("No anagrams");
+                return;
+            }
+
             foreach (string anagram in anagrams)
             {
                 if (anagram == anagrams.First())
