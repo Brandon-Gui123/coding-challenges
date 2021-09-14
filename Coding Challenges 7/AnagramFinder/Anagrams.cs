@@ -26,8 +26,8 @@ namespace AnagramFinder
 
             // permutations are meant to be unique,
             // so use of a HashSet will greatly
-            // benefit us when we use the Contains()
-            // method since this gives us O(1)
+            // benefit us when we need to check if an
+            // element already exists since this check is O(1)
             // time complexity
             HashSet<string> permutations = new();
 
