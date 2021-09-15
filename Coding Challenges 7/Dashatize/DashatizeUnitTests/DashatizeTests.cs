@@ -52,5 +52,17 @@ namespace DashatizeUnitTests
                          + "a single dash as per challenge requirements"
             );
         }
+    
+        [Test]
+        public void DashatizeNoOddNumbers()
+        {
+            const int input = 86420;
+            string result = Dashatize.DashatizeOdds(input);
+            result.Should().Be(
+                input.ToString(),
+                because: "there are no odd numbers, so there shouldn't be "
+                         + "any dashes added"
+            );
+        }
     }
 }
