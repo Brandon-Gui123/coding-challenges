@@ -40,5 +40,17 @@ namespace DashatizeUnitTests
                          + "Also, the last digit has space on the left, so a dash on the left should be present."
             );
         }
+    
+        [Test]
+        public void DashatizeConsecutiveOddNumbers()
+        {
+            const int input = 33;
+            string result = Dashatize.DashatizeOdds(input);
+            result.Should().Be(
+                "3-3",
+                because: "consecutive odd numbers should only be connected with "
+                         + "a single dash as per challenge requirements"
+            );
+        }
     }
 }
