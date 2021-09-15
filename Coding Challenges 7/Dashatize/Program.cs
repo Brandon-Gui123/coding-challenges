@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dashatize
+namespace DashatizeUtils
 {
     class DashesPlacement
     {
@@ -30,6 +30,13 @@ namespace Dashatize
             List<int> digits = new();
             do
             {
+                // TODO Can we optimize this? (append to end of list but all for loops to use reversed iteration?)
+                // Insertion point is at the beginning of the list, meaning
+                // every invocation is an O(n) operation.
+                // This makes this do-while loop an O(n^2) operation.
+                // If we call Add(), we might be able to do a O(1) operation
+                // (if we are able to reserve enough capacity)
+                // (maybe reserve 10 digits? because int.MaxValue is 10 digits?)
                 digits.Insert(0, inputCopy % 10);
                 inputCopy /= 10;
             }
