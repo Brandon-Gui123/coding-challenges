@@ -32,14 +32,20 @@ namespace DashatizeUtils
             {
                 if (reversedDigits[i] % 2 != 0)
                 {
+                    // because we're going through in
+                    // reverse order, we need to pay extra
+                    // attention to our index
+
                     // this odd digit shall have a left dash if
                     // 1. it isn't the first digit
                     // 2. the previous digit isn't odd
-                    bool hasLeftDash = (i != 0) && (i > 0 && reversedDigits[i - 1] % 2 != 1);
+                    // but since we're going in reverse order, instead of
+                    // saying i > 0, we say i < reversedDigits.Count - 1
+                    bool hasLeftDash = i < reversedDigits.Count - 1 && reversedDigits[i + 1] % 2 != 1;
 
                     // this odd digit shall have a right dash if
                     // 1. it isn't the last digit
-                    bool hasRightDash = i < reversedDigits.Count - 1;
+                    bool hasRightDash = i > 0;
 
                     DashesPlacement dashesPlacement = new(hasLeftDash, hasRightDash, reversedDigits[i]);
                     indexAndDashes.Add(i, dashesPlacement);
