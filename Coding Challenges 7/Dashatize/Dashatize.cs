@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace DashatizeUtils
 {
     public static class Dashatize
@@ -14,6 +16,23 @@ namespace DashatizeUtils
                 HasRightDash = hasRightDash;
                 Digit = digit;
             }
+        }
+
+        private static List<int> IntToReversedDigits(int integer)
+        {
+            // the maximum number of digits an integer can have
+            // is 10, which is the number of digits that
+            // int.MaxValue has
+            List<int> digitsReversed = new(10);
+
+            do
+            {
+                digitsReversed.Add(integer % 10);
+                integer /= 10;
+            }
+            while (integer != 0);
+
+            return digitsReversed;
         }
     }
 }
