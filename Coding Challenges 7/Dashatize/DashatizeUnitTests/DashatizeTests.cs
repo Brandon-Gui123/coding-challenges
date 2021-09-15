@@ -28,5 +28,17 @@ namespace DashatizeUnitTests
                          + "but there's space on the right so a right dash should be present"
             );
         }
+
+        [Test]
+        public void DashatizeOddNumberThatIsLast()
+        {
+            const int input = 2223;
+            string result = Dashatize.DashatizeOdds(input);
+            result.Should().Be(
+                "222-3",
+                because: "the odd number is the last digit, so there isn't room to put a right dash. "
+                         + "Also, the last digit has space on the left, so a dash on the left should be present."
+            );
+        }
     }
 }
