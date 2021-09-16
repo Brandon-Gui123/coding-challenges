@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace NumberExpandedForm
 {
@@ -6,7 +6,11 @@ namespace NumberExpandedForm
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+        }
+
+        private static void PrintLikeExample(int input)
+        {
+            Console.WriteLine($"expander({input}) -> '{NumberExpander.Expand(input)}'");
         }
     }
 }
