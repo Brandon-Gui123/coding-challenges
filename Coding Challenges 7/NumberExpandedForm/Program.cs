@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace NumberExpandedForm
 {
@@ -6,6 +6,8 @@ namespace NumberExpandedForm
     {
         static void Main(string[] args)
         {
+            PrintLikeExample(12);
+            PrintLikeExample(6304);
         }
 
         private static void PrintLikeExample(int input)
