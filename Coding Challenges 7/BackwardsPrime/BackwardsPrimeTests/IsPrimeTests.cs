@@ -40,5 +40,29 @@ namespace BackwardsPrimeTests
             bool result = BackwardsPrimeMethods.IsPrime(9);
             result.Should().BeFalse(because: "9 is divisible by 3");
         }
+
+        public class EdgeCases
+        {
+            [Test]
+            public void OneIsNotPrimeNumber()
+            {
+                bool result = BackwardsPrimeMethods.IsPrime(1);
+                result.Should().BeFalse(because: "1 is smaller than 2, so it doesn't fit the requirements of being a prime number");
+            }
+
+            [Test]
+            public void ZeroIsNotPrimeNumber()
+            {
+                bool result = BackwardsPrimeMethods.IsPrime(0);
+                result.Should().BeFalse(because: "0 is smaller than 2, so it doesn't fit the requirements of being a prime number");
+            }
+
+            [Test]
+            public void NegativeOneIsNotPrimeNumber()
+            {
+                bool result = BackwardsPrimeMethods.IsPrime(-1);
+                result.Should().BeFalse(because: "-1 is smaller than 2, so it doesn't fit the requirements of being a prime number");
+            }
+        }
     }
 }
