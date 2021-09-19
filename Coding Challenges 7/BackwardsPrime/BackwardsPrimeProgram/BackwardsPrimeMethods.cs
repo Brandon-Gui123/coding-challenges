@@ -48,5 +48,31 @@ namespace BackwardsPrimeProgram
 
             return isNegative ? result * -1 : result;
         }
+
+        /// <summary>
+        /// Checks if the given number is an emirp (which is a prime number, when read backwards,
+        /// is also a prime number).
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        /// <seealso href="https://en.wikipedia.org/wiki/Emirp">Emirp</seealso>
+        public static bool IsEmirp(int number)
+        {
+            if (number >= 0 && number <= 9)
+            {
+                // single digits not allowed
+                return false;
+            }
+
+            if (IsPrime(number))
+            {
+                int reversed = ReverseNumber(number);
+                return reversed != number && IsPrime(reversed);
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
