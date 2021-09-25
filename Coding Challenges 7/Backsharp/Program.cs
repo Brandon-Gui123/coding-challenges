@@ -11,13 +11,13 @@ namespace Backsharp
             PrintInChallengeFormat("abc##d###");
         }
 
-        public static string Backsharp(string input)
+        public static string Backsharp(string input, char backspaceChar = '#')
         {
             StringBuilder modified = new();
 
             foreach (char inputCh in input)
             {
-                if (inputCh == '#')
+                if (inputCh == backspaceChar)
                 {
                     if (modified.Length >= 1)
                     {
