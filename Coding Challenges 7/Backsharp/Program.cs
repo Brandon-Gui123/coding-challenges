@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Text;
 
 namespace Backsharp
@@ -7,7 +7,8 @@ namespace Backsharp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            PrintInChallengeFormat("abc#d##c");
+            PrintInChallengeFormat("abc##d###");
         }
 
         public static string Backsharp(string input)
