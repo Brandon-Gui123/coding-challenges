@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 
 namespace Backsharp
@@ -30,6 +30,11 @@ namespace Backsharp
             }
 
             return modified.ToString();
+        }
+    
+        public static void PrintInChallengeFormat(string input)
+        {
+            Console.WriteLine($"backsharp(\"{input}\") -> \"{Backsharp(input)}\"");
         }
     }
 }
