@@ -16,18 +16,15 @@ public class EntryPoint
         // we need at least one digit in the current sequence so we can
         // compare with other digits in the input
         IntSequence currentSequence = new IntSequence();
-        currentSequence.add(Integer.parseInt(input.charAt(0) + ""));
+
+        // this uses the ASCII table to convert a char to an integer
+        currentSequence.add(input.charAt(0) - '0');
 
         // i = 1 since the first digit is already in the sequence
         int currentSequenceIndex = 0;
         for (int i = 1; i < input.length(); i++)
         {
-            // since Integer.parseInt only accepts Strings,
-            // we have to create Strings containing just
-            // this one character
-            char nextChar = input.charAt(i);
-
-            int nextAsInt = Integer.parseInt(nextChar + "");
+            int nextAsInt = input.charAt(i) - '0';
 
             // is the ones place of the current digit,
             // when added by 1, is equal to the next digit,
@@ -45,7 +42,7 @@ public class EntryPoint
                     // FIXME Last element in previous sequence gets carried over to next sequence as first element
                     if (i < input.length() - 1)
                     {
-                        currentSequence.add(Integer.parseInt(input.charAt(i + 1) + ""));
+                        currentSequence.add(input.charAt(i + 1) - '0');
                         currentSequenceIndex = 0;
                         i++;        // both this increment and the for-loop increment will result in the index going up by 2
                     }
@@ -59,7 +56,7 @@ public class EntryPoint
             {
                 sequences.add(currentSequence);
                 currentSequence = new IntSequence();
-                currentSequence.add(Integer.parseInt(input.charAt(i) + ""));
+                currentSequence.add(input.charAt(i) - '0');
                 currentSequenceIndex = 0;
             }
         }
