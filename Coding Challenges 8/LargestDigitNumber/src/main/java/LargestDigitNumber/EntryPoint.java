@@ -6,16 +6,16 @@ public class EntryPoint
 {
     public static void main(String[] args)
     {
+        System.out.println(getLargest5Sequence("1234567890"));
     }
 
     public static String getLargest5Sequence(String input)
     {
-        // a collection of a collection of 5 integers
-        ArrayList<ArrayList<Integer>> sequences = new ArrayList<>();
+        ArrayList<IntSequence> sequences = new ArrayList<>();
 
         // we need at least one digit in the current sequence so we can
         // compare with other digits in the input
-        ArrayList<Integer> currentSequence = new ArrayList<>();
+        IntSequence currentSequence = new IntSequence();
         currentSequence.add(Integer.parseInt(input.charAt(0) + ""));
 
         // i = 1 since the first digit is already in the sequence
@@ -41,7 +41,7 @@ public class EntryPoint
                 if (currentSequence.size() == 5)
                 {
                     sequences.add(currentSequence);
-                    currentSequence = new ArrayList<>();
+                    currentSequence = new IntSequence();
                     // FIXME Last element in previous sequence gets carried over to next sequence as first element
                     if (i < input.length() - 1)
                     {
@@ -58,7 +58,7 @@ public class EntryPoint
             else
             {
                 sequences.add(currentSequence);
-                currentSequence = new ArrayList<>();
+                currentSequence = new IntSequence();
                 currentSequence.add(Integer.parseInt(input.charAt(i) + ""));
                 currentSequenceIndex = 0;
             }
@@ -68,11 +68,7 @@ public class EntryPoint
         int highestSumIndex = 0;
         for (int i = 0; i < sequences.size(); i++)
         {
-            int currentSequenceSum = 0;
-            for (int number : sequences.get(i))
-            {
-                currentSequenceSum += number;
-            }
+            int currentSequenceSum = sequences.get(i).sum();
 
             if (currentSequenceSum > highestSum)
             {
@@ -81,12 +77,6 @@ public class EntryPoint
             }
         }
 
-        String sequenceAsString = "";
-        for (int number : sequences.get(highestSumIndex))
-        {
-            sequenceAsString += number;
-        }
-
-        return sequenceAsString;
+        return sequences.get(highestSumIndex).toString();
     }
 }
