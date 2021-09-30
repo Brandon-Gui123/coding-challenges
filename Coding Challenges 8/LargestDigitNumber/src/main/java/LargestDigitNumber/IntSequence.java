@@ -48,4 +48,9 @@ public class IntSequence
 
         return stringBuilder.toString();
     }
+
+    public void clear()
+    {
+        m_numbers.clear();
+    }
 }
