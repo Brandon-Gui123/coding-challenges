@@ -1,9 +1,92 @@
 package LargestDigitNumber;
 
+import java.util.ArrayList;
+
 public class EntryPoint
 {
     public static void main(String[] args)
     {
     }
 
+    public static String getLargest5Sequence(String input)
+    {
+        // a collection of a collection of 5 integers
+        ArrayList<ArrayList<Integer>> sequences = new ArrayList<>();
+
+        // we need at least one digit in the current sequence so we can
+        // compare with other digits in the input
+        ArrayList<Integer> currentSequence = new ArrayList<>();
+        currentSequence.add(Integer.parseInt(input.charAt(0) + ""));
+
+        // i = 1 since the first digit is already in the sequence
+        int currentSequenceIndex = 0;
+        for (int i = 1; i < input.length(); i++)
+        {
+            // since Integer.parseInt only accepts Strings,
+            // we have to create Strings containing just
+            // this one character
+            char nextChar = input.charAt(i);
+
+            int nextAsInt = Integer.parseInt(nextChar + "");
+
+            // is the ones place of the current digit,
+            // when added by 1, is equal to the next digit,
+            // meaning they are consecutive (next comes after current)
+            int previous = currentSequence.get(currentSequenceIndex);
+            if ((previous + 1) % 10 == nextAsInt)
+            {
+                currentSequence.add(nextAsInt);
+                currentSequenceIndex++;
+
+                if (currentSequence.size() == 5)
+                {
+                    sequences.add(currentSequence);
+                    currentSequence = new ArrayList<>();
+                    // FIXME Last element in previous sequence gets carried over to next sequence as first element
+                    if (i < input.length() - 1)
+                    {
+                        currentSequence.add(Integer.parseInt(input.charAt(i + 1) + ""));
+                        currentSequenceIndex = 0;
+                        i++;        // both this increment and the for-loop increment will result in the index going up by 2
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                sequences.add(currentSequence);
+                currentSequence = new ArrayList<>();
+                currentSequence.add(Integer.parseInt(input.charAt(i) + ""));
+                currentSequenceIndex = 0;
+            }
+        }
+
+        int highestSum = 0;
+        int highestSumIndex = 0;
+        for (int i = 0; i < sequences.size(); i++)
+        {
+            int currentSequenceSum = 0;
+            for (int number : sequences.get(i))
+            {
+                currentSequenceSum += number;
+            }
+
+            if (currentSequenceSum > highestSum)
+            {
+                highestSum = currentSequenceSum;
+                highestSumIndex = i;
+            }
+        }
+
+        String sequenceAsString = "";
+        for (int number : sequences.get(highestSumIndex))
+        {
+            sequenceAsString += number;
+        }
+
+        return sequenceAsString;
+    }
 }
