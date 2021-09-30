@@ -11,9 +11,29 @@ public class EntryPoint
 
     public static String getLargest5Sequence(String input)
     {
+        ArrayList<IntSequence> sequences = findConsecutiveSequences(input, 5);
+
+        int highestSum = 0;
+        int highestSumIndex = 0;
+        for (int i = 0; i < sequences.size(); i++)
+        {
+            int currentSequenceSum = sequences.get(i).sum();
+
+            if (currentSequenceSum > highestSum)
+            {
+                highestSum = currentSequenceSum;
+                highestSumIndex = i;
+            }
+        }
+
+        return sequences.get(highestSumIndex).toString();
+    }
+
+    public static ArrayList<IntSequence> findConsecutiveSequences(String input, int sequenceLength)
+    {
         ArrayList<IntSequence> sequences = new ArrayList<>();
 
-        // we need at least one digit in the current sequence so we can
+        // we need at least one digit in the current sequence, so we can
         // compare with other digits in the input
         IntSequence currentSequence = new IntSequence();
 
@@ -34,7 +54,7 @@ public class EntryPoint
                 currentSequence.add(currentDigit);
                 currentSequenceIndex++;
 
-                if (currentSequence.size() == 5)
+                if (currentSequence.size() == sequenceLength)
                 {
                     sequences.add(currentSequence);
 
@@ -72,19 +92,6 @@ public class EntryPoint
             currentInputIndex++;
         }
 
-        int highestSum = 0;
-        int highestSumIndex = 0;
-        for (int i = 0; i < sequences.size(); i++)
-        {
-            int currentSequenceSum = sequences.get(i).sum();
-
-            if (currentSequenceSum > highestSum)
-            {
-                highestSum = currentSequenceSum;
-                highestSumIndex = i;
-            }
-        }
-
-        return sequences.get(highestSumIndex).toString();
+        return sequences;
     }
 }
