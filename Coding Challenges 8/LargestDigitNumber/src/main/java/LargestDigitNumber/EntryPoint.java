@@ -20,45 +20,56 @@ public class EntryPoint
         // this uses the ASCII table to convert a char to an integer
         currentSequence.add(input.charAt(0) - '0');
 
-        // i = 1 since the first digit is already in the sequence
+        // is 1 since the first element is already in the sequence
+        int currentInputIndex = 1;
         int currentSequenceIndex = 0;
-        for (int i = 1; i < input.length(); i++)
-        {
-            int nextAsInt = input.charAt(i) - '0';
 
-            // is the ones place of the current digit,
-            // when added by 1, is equal to the next digit,
-            // meaning they are consecutive (next comes after current)
-            int previous = currentSequence.get(currentSequenceIndex);
-            if ((previous + 1) % 10 == nextAsInt)
+        while (currentInputIndex < input.length())
+        {
+            int previousDigit = currentSequence.get(currentSequenceIndex);
+            int currentDigit = input.charAt(currentInputIndex) - '0';
+
+            if ((previousDigit + 1) % 10 == currentDigit)
             {
-                currentSequence.add(nextAsInt);
+                currentSequence.add(currentDigit);
                 currentSequenceIndex++;
 
                 if (currentSequence.size() == 5)
                 {
                     sequences.add(currentSequence);
-                    currentSequence = new IntSequence();
-                    // FIXME Last element in previous sequence gets carried over to next sequence as first element
-                    if (i < input.length() - 1)
+
+                    if (currentInputIndex < input.length() - 2)
                     {
-                        currentSequence.add(input.charAt(i + 1) - '0');
+                        currentSequence = new IntSequence();
+                        currentSequence.add(input.charAt(currentInputIndex + 1) - '0');
                         currentSequenceIndex = 0;
-                        i++;        // both this increment and the for-loop increment will result in the index going up by 2
+                        currentInputIndex++;
                     }
                     else
                     {
+                        // input exhausted!
                         break;
                     }
                 }
             }
             else
             {
-                sequences.add(currentSequence);
-                currentSequence = new IntSequence();
-                currentSequence.add(input.charAt(i) - '0');
-                currentSequenceIndex = 0;
+                if (currentInputIndex < input.length() - 2)
+                {
+                    // the current sequence is no longer valid
+                    currentSequence.clear();
+                    currentSequence.add(input.charAt(currentInputIndex + 1) - '0');
+                    currentSequenceIndex = 0;
+                    currentInputIndex++;
+                }
+                else
+                {
+                    // input exhausted!
+                    break;
+                }
             }
+
+            currentInputIndex++;
         }
 
         int highestSum = 0;
