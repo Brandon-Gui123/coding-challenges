@@ -35,4 +35,17 @@ public class IntSequence
     {
         m_numbers.add(number);
     }
+
+    @Override
+    public String toString()
+    {
+        var stringBuilder = new StringBuilder(m_numbers.size());
+
+        for (int number : m_numbers)
+        {
+            stringBuilder.append(number);
+        }
+
+        return stringBuilder.toString();
+    }
 }
