@@ -11,6 +11,11 @@ public class EntryPoint
 
     public static String getLargest5Sequence(String input)
     {
+        if (input.isBlank())
+        {
+            return "";
+        }
+
         ArrayList<IntSequence> sequences = findConsecutiveSequences(input, 5);
 
         int highestSum = 0;
