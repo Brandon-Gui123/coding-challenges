@@ -28,4 +28,12 @@ public class Main
 
         return stringBuilder.toString();
     }
+
+    public static void printInChallengeFormat(String input)
+    {
+        System.out.printf("Input: %s", input);
+        System.out.println();
+        System.out.printf("Output: %s", mumble(input));
+        System.out.println();
+    }
 }
