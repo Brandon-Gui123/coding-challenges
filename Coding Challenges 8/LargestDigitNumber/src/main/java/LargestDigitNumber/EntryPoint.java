@@ -15,6 +15,10 @@ public class EntryPoint
         {
             return "";
         }
+        else if (!inputContainsOnlyNumbers(input))
+        {
+            throw new IllegalArgumentException("input can only contain digits");
+        }
 
         ArrayList<IntSequence> sequences = findConsecutiveSequences(input, 5);
 
@@ -109,5 +113,20 @@ public class EntryPoint
         System.out.println();
         System.out.println("Output: ");
         System.out.println(getLargest5Sequence(input));
+    }
+
+    public static boolean inputContainsOnlyNumbers(String input)
+    {
+        for (int i = 0; i < input.length(); i++)
+        {
+            char inputChar = input.charAt(i);
+
+            if (!Character.isDigit(inputChar))
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
