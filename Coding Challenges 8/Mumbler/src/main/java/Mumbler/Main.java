@@ -4,12 +4,20 @@ public class Main
 {
     public static void main(String[] args)
     {
-        System.out.println("Darn");
+        printInChallengeFormat("abcdefghijklmnopqrstuvwxyz");
+        printInChallengeFormat("plus");
     }
 
     public static String mumble(String input)
     {
-        StringBuilder stringBuilder = new StringBuilder();
+        int mumbledStringLength = 0;
+        for (int i = 0; i < input.length(); i++)
+        {
+            mumbledStringLength += i + 1;
+        }
+        mumbledStringLength += input.length() - 1;
+
+        StringBuilder stringBuilder = new StringBuilder(mumbledStringLength);
         for (int i = 0; i < input.length(); i++)
         {
             char currentChar = input.charAt(i);
