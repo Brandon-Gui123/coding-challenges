@@ -36,6 +36,7 @@ public class EntryPoint
         // we need at least one digit in the current sequence, so we can
         // compare with other digits in the input
         IntSequence currentSequence = new IntSequence();
+        currentSequence.ensureCapacity(sequenceLength);
 
         // this uses the ASCII table to convert a char to an integer
         currentSequence.add(input.charAt(0) - '0');
@@ -61,6 +62,7 @@ public class EntryPoint
                     if (currentInputIndex < input.length() - 2)
                     {
                         currentSequence = new IntSequence();
+                        currentSequence.ensureCapacity(sequenceLength);
                         currentSequence.add(input.charAt(currentInputIndex + 1) - '0');
                         currentSequenceIndex = 0;
                         currentInputIndex++;
