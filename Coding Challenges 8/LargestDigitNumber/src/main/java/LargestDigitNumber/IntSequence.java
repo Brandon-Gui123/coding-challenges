@@ -53,4 +53,9 @@ public class IntSequence
     {
         m_numbers.clear();
     }
+
+    public void ensureCapacity(int minCapacity)
+    {
+        m_numbers.ensureCapacity(minCapacity);
+    }
 }
