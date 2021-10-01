@@ -10,6 +10,12 @@ public class Main
 
     public static String mumble(String input)
     {
+        if (input.isBlank())
+        {
+            // nothing to "mumble" so just return nothing
+            return "";
+        }
+
         int mumbledStringLength = 0;
         for (int i = 0; i < input.length(); i++)
         {
