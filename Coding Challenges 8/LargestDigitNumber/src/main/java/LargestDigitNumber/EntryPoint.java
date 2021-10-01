@@ -28,20 +28,21 @@ public class EntryPoint
             return "";
         }
 
-        int highestSum = 0;
-        int highestSumIndex = 0;
-        for (int i = 0; i < sequences.size(); i++)
+        IntSequence sequenceWithHighestSum = sequences.get(0);
+        int highestSum = sequenceWithHighestSum.sum();
+        for (int i = 1; i < sequences.size(); i++)
         {
-            int currentSequenceSum = sequences.get(i).sum();
+            IntSequence currentSequence = sequences.get(i);
+            int currentSequenceSum = currentSequence.sum();
 
             if (currentSequenceSum > highestSum)
             {
                 highestSum = currentSequenceSum;
-                highestSumIndex = i;
+                sequenceWithHighestSum = currentSequence;
             }
         }
 
-        return sequences.get(highestSumIndex).toString();
+        return sequenceWithHighestSum.toString();
     }
 
     public static ArrayList<IntSequence> findConsecutiveSequences(String input, int sequenceLength)
