@@ -22,6 +22,12 @@ public class EntryPoint
 
         ArrayList<IntSequence> sequences = findConsecutiveSequences(input, 5);
 
+        if (sequences.size() <= 0)
+        {
+            // found no such sequences!
+            return "";
+        }
+
         int highestSum = 0;
         int highestSumIndex = 0;
         for (int i = 0; i < sequences.size(); i++)
