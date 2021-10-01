@@ -6,7 +6,7 @@ public class EntryPoint
 {
     public static void main(String[] args)
     {
-        System.out.println(getLargest5Sequence("1234567890"));
+        printInChallengeExampleFormat("1234567890");
     }
 
     public static String getLargest5Sequence(String input)
@@ -95,5 +95,14 @@ public class EntryPoint
         }
 
         return sequences;
+    }
+
+    public static void printInChallengeExampleFormat(String input)
+    {
+        System.out.println("Input: ");
+        System.out.println(input);
+        System.out.println();
+        System.out.println("Output: ");
+        System.out.println(getLargest5Sequence(input));
     }
 }
