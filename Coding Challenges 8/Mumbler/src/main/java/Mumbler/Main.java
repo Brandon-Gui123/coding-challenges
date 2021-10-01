@@ -15,6 +15,10 @@ public class Main
             // nothing to "mumble" so just return nothing
             return "";
         }
+        else if (containsOnlyLetters(input))
+        {
+            throw new IllegalArgumentException("input must contain only letters");
+        }
 
         int mumbledStringLength = 0;
         for (int i = 0; i < input.length(); i++)
@@ -49,5 +53,18 @@ public class Main
         System.out.println();
         System.out.printf("Output: %s", mumble(input));
         System.out.println();
+    }
+
+    public static boolean containsOnlyLetters(String input)
+    {
+        for (int i = 0; i < input.length(); i++)
+        {
+            if (!Character.isLetter(input.charAt(i)))
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
