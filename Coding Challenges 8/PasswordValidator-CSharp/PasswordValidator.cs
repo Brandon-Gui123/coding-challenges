@@ -21,6 +21,23 @@ namespace PasswordValidator_CSharp
             return this;
         }
     
+        public PasswordValidator ContainUppercaseChars()
+        {
+            bool containsUppercase = false;
+
+            foreach (var passwordChar in m_password)
+            {
+                if (char.IsUpper(passwordChar))
+                {
+                    containsUppercase = true;
+                    break;
+                }
+            }
+
+            m_currentResult = containsUppercase;
+            return this;
+        }
+
         public static implicit operator bool(PasswordValidator validator)
         {
             return validator.m_currentResult;
