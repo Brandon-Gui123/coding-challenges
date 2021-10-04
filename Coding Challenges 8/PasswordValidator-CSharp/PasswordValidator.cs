@@ -23,6 +23,9 @@ namespace PasswordValidator_CSharp
     
         public PasswordValidator ContainUppercaseChars()
         {
+            if (!m_currentResult)
+                return this;
+
             bool containsUppercase = false;
 
             foreach (var passwordChar in m_password)
@@ -40,6 +43,9 @@ namespace PasswordValidator_CSharp
 
         public PasswordValidator ContainLowercaseChars()
         {
+            if (!m_currentResult)
+                return this;
+            
             bool containsLowercase = false;
 
             foreach (var passwordChar in m_password)
@@ -57,6 +63,9 @@ namespace PasswordValidator_CSharp
 
         public PasswordValidator ContainNumbers()
         {
+            if (!m_currentResult)
+                return this;
+            
             bool containsNumbers = false;
             foreach (var passwordChar in m_password)
             {
