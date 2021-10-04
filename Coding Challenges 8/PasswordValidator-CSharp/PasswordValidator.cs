@@ -55,6 +55,22 @@ namespace PasswordValidator_CSharp
             return this;
         }
 
+        public PasswordValidator ContainNumbers()
+        {
+            bool containsNumbers = false;
+            foreach (var passwordChar in m_password)
+            {
+                if (char.IsDigit(passwordChar))
+                {
+                    containsNumbers = true;
+                    break;
+                }
+            }
+
+            m_currentResult = containsNumbers;
+            return this;
+        }
+
         public static implicit operator bool(PasswordValidator validator)
         {
             return validator.m_currentResult;
