@@ -14,5 +14,11 @@ namespace PasswordValidator_CSharp
             // operator
             m_currentResult = true;
         }
+    
+        public PasswordValidator HaveAtLeastLength(int length)
+        {
+            m_currentResult = m_currentResult && m_password.Length >= length;
+            return this;
+        }
     }
 }
