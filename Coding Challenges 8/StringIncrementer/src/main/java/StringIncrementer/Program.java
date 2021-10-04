@@ -10,6 +10,9 @@ public class Program
 
     public static String incrementString(String input)
     {
+        if (input == null)
+            throw new IllegalArgumentException("cannot increment null input");
+
         char lastChar = input.charAt(input.length() - 1);
         if (Character.isDigit(lastChar))
         {
