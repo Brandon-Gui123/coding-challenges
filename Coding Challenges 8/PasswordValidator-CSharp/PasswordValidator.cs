@@ -20,5 +20,10 @@ namespace PasswordValidator_CSharp
             m_currentResult = m_currentResult && m_password.Length >= length;
             return this;
         }
+    
+        public static implicit operator bool(PasswordValidator validator)
+        {
+            return validator.m_currentResult;
+        }
     }
 }
