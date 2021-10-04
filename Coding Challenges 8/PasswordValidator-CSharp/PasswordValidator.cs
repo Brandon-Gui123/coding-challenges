@@ -38,6 +38,23 @@ namespace PasswordValidator_CSharp
             return this;
         }
 
+        public PasswordValidator ContainLowercaseChars()
+        {
+            bool containsLowercase = false;
+
+            foreach (var passwordChar in m_password)
+            {
+                if (char.IsLower(passwordChar))
+                {
+                    containsLowercase = true;
+                    break;
+                }
+            }
+
+            m_currentResult = containsLowercase;
+            return this;
+        }
+
         public static implicit operator bool(PasswordValidator validator)
         {
             return validator.m_currentResult;
