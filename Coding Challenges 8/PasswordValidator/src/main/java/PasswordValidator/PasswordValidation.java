@@ -48,4 +48,12 @@ public class PasswordValidation
 
         return false;
     }
+
+    public static boolean isValidPassword(String password)
+    {
+        return isLengthAtLeast(password, 6)
+                && containsLowercase(password)
+                && containsUppercase(password)
+                && containsDigit(password);
+    }
 }
