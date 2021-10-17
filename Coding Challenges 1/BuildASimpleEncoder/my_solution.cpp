@@ -1,9 +1,5 @@
-// for the unordered map
-#include "constants.h"
-
 #include <cctype>   // for std::tolower
 #include <string>
-#include <unordered_map>
 
 std::string replaceCharWithAlphabetPositions(const std::string& str)
 {
