@@ -1,30 +1,30 @@
-// for the unordered map
-#include "constants.h"
-
 #include <cctype>   // for std::tolower
-#include <string>
-#include <unordered_map>
+#include <string>   // for std::string
 
 std::string replaceCharWithAlphabetPositions(const std::string& str)
 {
-    // Fastest that I can come up with:
-    // 1. Iterate through each character in the string
-    // 2. Convert the character to lowercase, if needed
-    // 3. Use a map that has chars as the key and ints as the value.
-    //    Ordered from a to z, with ints as the position on the alphabet.
-    // 4. With the current character, pass it into the map as the key.
-    //    The returned value will be the position of the char on the alphabet.
-    // 5. Convert the int into a string.
-    // 6. Concatenate it with some variable that holds result.
-    // 7. Return the result after iterating through all of the chars.
+    /*
+     * We can simply use the ASCII table to get the character's position
+     * in the alphabet.
+     * This reduces the need for an unordered map storing all the mappings.
+     */
 
     std::string result{ "" };
+
+    // the string would be at least as big as the input string
+    // so might as well reserve some size for performance
+    // (no need to resize a lot when we append chars)
+    result.reserve(str.size());
 
     for (auto ch : str)
     {
         ch = std::tolower(ch);
 
-        int alphabetPos{ alphabetPositions[ch] };
+        // 'a' is the first character in the ASCII table from 'a' to 'z'
+        // so subtracting 'a' results in a range from 0 to 25.
+        // adding a 1 changes the range from 1 to 26, which makes sense since
+        // we intend to say first, second, third, fourth etc.
+        int alphabetPos{ ch - 'a' + 1 };
 
         result += std::to_string(alphabetPos);
     }
