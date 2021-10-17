@@ -1,5 +1,5 @@
 #include <cctype>   // for std::tolower
-#include <string>
+#include <string>   // for std::string
 
 std::string replaceCharWithAlphabetPositions(const std::string& str)
 {
