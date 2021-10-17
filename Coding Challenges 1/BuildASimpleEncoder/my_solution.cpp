@@ -11,6 +11,11 @@ std::string replaceCharWithAlphabetPositions(const std::string& str)
 
     std::string result{ "" };
 
+    // the string would be at least as big as the input string
+    // so might as well reserve some size for performance
+    // (no need to resize a lot when we append chars)
+    result.reserve(str.size());
+
     for (auto ch : str)
     {
         ch = std::tolower(ch);
