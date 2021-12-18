@@ -12,7 +12,7 @@ namespace Bin2Dec
             // check that input contains ONLY 0's and 1's
             foreach (char chInput in binaryInput)
             {
-                if (chInput != 0 && chInput != 1)
+                if (chInput != '0' && chInput != '1')
                 {
                     Console.WriteLine("Input can only contain 0's and 1's");
                     return;
