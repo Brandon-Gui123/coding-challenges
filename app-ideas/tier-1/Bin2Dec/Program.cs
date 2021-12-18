@@ -6,7 +6,18 @@ namespace Bin2Dec
     {
         static void Main(string[] args)
         {
-            string binaryInput = "11111111";
+            // assume input is from the first argument
+            string binaryInput = args[0];
+
+            // check that input contains ONLY 0's and 1's
+            foreach (char chInput in binaryInput)
+            {
+                if (chInput != 0 && chInput != 1)
+                {
+                    Console.WriteLine("Input can only contain 0's and 1's");
+                    return;
+                }
+            }
 
             var sum = 0;
 
